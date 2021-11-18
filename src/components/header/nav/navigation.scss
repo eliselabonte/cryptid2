@@ -1,0 +1,32 @@
+nav.Nav {
+    z-index:19;
+    transition: all 1s ease;
+    position: fixed;
+    height: 100vh;
+    width: 150px;
+    background-color: var(--orange);
+    top:0px;
+    right:0px;
+}
+
+nav.Nav.hidden  {
+    right:-150px;
+}
+
+ul.nav-list  {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin:0px;
+    padding:0px;
+}
+
+li {
+    list-style-type: none;
+    font-family: var(--body-font);
+}
+
+li a {
+    text-decoration: none;
+    color: var(--medium-grey);
+}
