@@ -3,8 +3,14 @@ body    {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+}
 
+main    {
+    background-color: var(--blue);
+    position: relative;
+    top:16vh;
+    z-index:1;
+    
     >   *{
         height:100vh;
     }
