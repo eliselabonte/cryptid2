@@ -4,14 +4,6 @@ body    {
     flex-direction: column;
     align-items: center;
 }
-
-main    {
-    background-color: var(--blue);
-    position: relative;
-    top:16vh;
-    z-index:1;
-    
-    >   *{
-        height:100vh;
-    }
+h1, h2, h3, h4, p  {
+    color: black;
 }
