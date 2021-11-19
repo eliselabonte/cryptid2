@@ -1,22 +1,24 @@
 div.intro-block   {
     height: 50vh;
+    width:100%;
     position:fixed;
     display:flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index:-10;
-    top:40px;
+    top:5vh;
 }
 
 h1.cryptid    {
     font-family: var(--special-font);
-    font-size: 40px;
+    font-size: 50px;
+    margin: 0px;
 }
 
 img.creatures {
-    width: 100%;
-    top:8vh;
+    width: 80%;
+    // top:10vh;
     // left:15vw;
     // right:15vw;
 }
