@@ -1,6 +1,6 @@
-import './category.scss';
+import './homepage.scss';
 
-export default function Category() {
+export default function Homepage() {
     return  (
         <div className='category-container'>
             <div className='category-card'>
