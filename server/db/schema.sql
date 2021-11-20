@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS cryptid_db;
+CREATE DATABASE cryptid_db;
