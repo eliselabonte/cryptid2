@@ -1,12 +1,8 @@
-
-*, *:before, *:after{
-  box-sizing: border-box;
-}
-
 * {
   --dark-gray:rgb(42, 42, 42);
   --blue: #184169;
   --orange: #FB7946;
+  --nav-orange: #fb79468e;
   --brown: #C67E58;
   --tan: #DDB37E;
   --red: #823246;
@@ -36,6 +32,7 @@ footer, header, nav, section, main{
 
 body{
   line-height: 1;
+  height: 100%;
 }
 
 ol, ul{
