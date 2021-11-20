@@ -1,5 +1,4 @@
 div.intro-block   {
-    height: 50vh;
     width:100%;
     position:fixed;
     display:flex;
@@ -7,12 +6,9 @@ div.intro-block   {
     align-items: center;
     justify-content: center;
     z-index:-10;
-    top:5vh;
+    top:20px;
 }
 
 img.creatures {
     width: 100%;
-    // top:10vh;
-    // left:15vw;
-    // right:15vw;
 }

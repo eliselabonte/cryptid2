@@ -3,7 +3,7 @@ main    {
     position: relative;
     top:16vh;
     z-index:1;
-    // height: 95vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,7 +16,7 @@ h1.cryptid    {
     // right: 100px;
     font-family: var(--title-font);
     font-size: 50px;
-    margin: 0px;
+    margin-top: 10px;
 }
 
 h2.tagline  {
@@ -25,7 +25,7 @@ h2.tagline  {
     font-family: var(--special-font);
     font-size: 30px;
     text-align: center;
-    // margin-top: 100px;
+    margin-top: 10px;
 }
 
 div.fonts   {
