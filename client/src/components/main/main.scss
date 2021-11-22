@@ -4,6 +4,7 @@ main    {
     top:16vh;
     z-index:1;
     height: 100%;
+    width: 100%;
     min-height: 95vh;
     display: flex;
     flex-direction: column;
@@ -12,34 +13,40 @@ main    {
 }
 
 h1.cryptid    {
-    // position: fixed;
-    // top:20px;
-    // right: 100px;
-    font-family: var(--title-font);
+    position: fixed;
+    top:20px;
+    left: 10px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+h1.cryptid.homepage    {
+    position: relative;
     font-size: 50px;
     margin-top: 10px;
+    color: black;
+    margin: 0px;
+    top: 0px;
 }
 
 h2.tagline  {
+    display: none;
+}
+
+h2.tagline.homepage  {
     // height: 100px;
+    display: inline;
     width: 90%;
-    font-family: var(--special-font);
-    font-size: 30px;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
 }
 
 div.fonts   {
-    // background-color: var(--blue);
     z-index: 10;
     width: 100vw;
     display:flex;
     flex-direction: column;
     align-items: center;
-}
-
-p   {
-    font-size: 40px;
 }
 
 .title   {
@@ -56,4 +63,16 @@ p   {
 
 .other  {
     font-family: var(--other-font);
+}
+
+@media screen and (max-width: 800px) {
+    main    {
+        top: 8vh;
+    }
+    h1.cryptid.homepage  {
+        font-size: 20px;
+    }
+    h2.tagline  {
+        font-size: 15px;
+    }
 }

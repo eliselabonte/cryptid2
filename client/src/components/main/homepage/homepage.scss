@@ -1,5 +1,5 @@
 div.category-container  {
-    height: 60vh;
+    // height: 60vh;
     // width: 1000px;
     display: flex;
     flex-direction: row;
@@ -7,12 +7,14 @@ div.category-container  {
     justify-content: space-evenly;
     align-items: center;
     margin-top: 50px;
+    margin-bottom: 20px;
 
-    > * {
+    > div {
         width: 40vw;
-        min-width:400px;
+        min-width:350px;
+        max-width: 500px;
         height: 200px;
-        background-color: white;
+        background-color: rgba(255, 255, 255, 0.75);
         border-radius: 30px;
         box-shadow: 0px 0px 10px 10px var(--nav-orange);
         padding:10px;
@@ -30,29 +32,53 @@ div.category-container  {
     }
 }
 
-    h3, h4    {
-        font-family: var(--other-font);
-    }
-    h3.category-name {
-        font-size: 25px;
-    }
-    h4.pronounce {
-        font-size: 20px;
-    }
-    p.define {
-        text-align: center;
-        font-size: 15px;
-        font-family: var(--body-font);
-    }
-    button {
-        height: 50px;
-        width: 100px;
-        border-radius: 10px;
-        font-family: var(--other-font);
-        font-size: 15px;
-        background-color: var(--tan);
-    }
+div.category-card:hover  {
+    background-color: rgba(255, 255, 255, 0.9);
+}
 
-    button:hover  {
-        background-color: var(--brown);
+h3, h4    {
+    font-family: var(--other-font);
+}
+h3.category-name {
+    font-size: 25px;
+}
+h4.pronounce {
+    font-size: 20px;
+}
+p.define {
+    text-align: center;
+    font-size: 15px;
+    font-family: var(--body-font);
+}
+button {
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+    font-family: var(--other-font);
+    font-size: 15px;
+    background-color: var(--tan);
+}
+
+button:hover  {
+    background-color: var(--brown);
+}
+
+@media screen and (max-width: 800px) {
+    div.category-container {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        height: 100vh;
+        width: 100vw;
+        > div.category-card   {
+            width: 60%;
+            min-width: 50px;
+        }
     }
+    h3.category-name, h4.pronounce, p.define  {
+        font-size: 0.9rem;
+    }
+    button  {
+        height: 25px;
+        font-size: 10px;
+    }
+}
