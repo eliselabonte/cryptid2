@@ -22,6 +22,10 @@ a.login-button  {
     color: black;
 }
 
+a.login-button:hover    {
+    color: var(--orange);
+}
+
 section.top {
     position:fixed;
     width: 200px;

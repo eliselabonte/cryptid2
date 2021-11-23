@@ -16,7 +16,7 @@ export default function Header(props: any) {
                     <Hamburger 
                     navOpen={navOpen} 
                     setNavOpen={setNavOpen}/>
-                    <a href='#scrollDown' className='login-button' onClick={() => setDisplay('Authentication')}>Login</a>
+                    <a href='#scrollDown' className='login-button' onClick={() => setDisplay('Authentication')}>Log In</a>
                 </div>
             </section>
             <Navigation 
