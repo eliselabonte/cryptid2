@@ -1,4 +1,5 @@
 import './navigation.scss';
+// import React from 'react';
 
 export default function Navigation(props:any)   {
     const { navOpen } = props;
@@ -7,14 +8,12 @@ export default function Navigation(props:any)   {
         <nav className={`Nav ${navOpen ? '' : 'hidden'}`}>
             <ul className='nav-list'>
                 {/* TODO: list functionality */}
-                <li id="small-text" className="navbtn btn col 4 light-blue darken-3" onClick={() => props.handlePageChange('AboutMe')}>
-                    Home
-                </li>
-                <li id="small-text" className="navbtn btn col 4 light-blue darken-3" onClick={() => props.handlePageChange('Portfolio')}>
+                
+                <li className="navbtn" onClick={() => props.handlePageChange('Portfolio')}>
                     Dashboard
                 </li>
-                <li id="small-text" className="navbtn btn col 4 light-blue darken-3" onClick={() => props.handlePageChange('Contact')}>
-                    Unknown
+                <li className="navbtn" onClick={() => props.handlePageChange('Contact')}>
+                    Login
                 </li>
             </ul>
         </nav>
