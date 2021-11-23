@@ -7,7 +7,7 @@ div.authentication-container    {
 }
 
 div.card    {
-    background-color: white;
+    background: linear-gradient(gray 0% 20%, white 20% 100%);
     margin: 20px;
     display: flex;
     flex-direction: column;
@@ -19,7 +19,7 @@ div.card    {
 }
 
 div.card.signup {
-    justify-content: flex-start;
+    justify-content: space-evenly;
 }
 
 div.card > h4  {

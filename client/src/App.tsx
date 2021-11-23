@@ -6,13 +6,19 @@ import './App.scss';
 
 function App() {
   const [navOpen, setNavOpen] = useState<Boolean>(false);
+
+  const [display, setDisplay] = useState('Homepage');
   return (
     // react fragment allows us to group our sections under one parent (as per React) w/o creating a new div
     // (good practice to limit extraneous divs)
     <Fragment>
       <Intro />
-      <Header navOpen={navOpen} setNavOpen={setNavOpen} />
-      <Main/>
+      <Header 
+      navOpen={navOpen} 
+      setNavOpen={setNavOpen} 
+      display={display}
+      setDisplay={setDisplay}/>
+      <Main display={display}/>
     </Fragment>
   );
 }
