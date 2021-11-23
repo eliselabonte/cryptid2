@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react';
+import React, { Fragment, useState } from 'react';
 import Intro from './components/intro/Intro';
 import Header from './components/header/Header';
 import Main from './components/main/Main';
@@ -8,6 +8,7 @@ function App() {
   const [navOpen, setNavOpen] = useState<Boolean>(false);
 
   const [display, setDisplay] = useState('Homepage');
+  
   return (
     // react fragment allows us to group our sections under one parent (as per React) w/o creating a new div
     // (good practice to limit extraneous divs)
