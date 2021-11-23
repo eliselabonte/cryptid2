@@ -11,7 +11,6 @@ main    {
     align-items: center;
     scroll-snap-type: y mandatory;
 }
-
 h1.cryptid    {
     position: fixed;
     top:20px;
@@ -19,6 +18,10 @@ h1.cryptid    {
     color: rgba(0, 0, 0, 0.7);
     font-family: var(--title-font);
     font-size: 45px;
+}
+
+a:-webkit-any-link  {
+    text-decoration: none;
 }
 
 h1.cryptid.homepage    {
