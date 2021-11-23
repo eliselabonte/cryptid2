@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS cryptid_db;
-CREATE DATABASE cryptid_db;
+DROP DATABASE IF EXISTS cryptid2_db;
+CREATE DATABASE cryptid2_db;
