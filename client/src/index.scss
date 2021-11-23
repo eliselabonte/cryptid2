@@ -57,3 +57,28 @@ input{
   -webkit-appearance: none;
   border-radius: 0;
 }
+
+h1  {
+  font-size: 45px;
+  font-family: var(--title-font);
+}
+
+h2  {
+  font-size: 30px;
+  font-family: var(--special-font);
+}
+
+h3  {
+  font-size: 20px;
+  font-family: var(--special-font);
+}
+
+h4  {
+  font-size: 15px;
+  font-family: var(--other-font);
+}
+
+p, li  {
+  font-size: 15px;
+  font-family: var(--body-font);
+}
