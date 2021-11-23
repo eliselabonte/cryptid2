@@ -8,6 +8,20 @@ img.trees {
     width: 100vw;
 }
 
+div.burger-links  {
+    display:flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 70px;
+}
+
+a.login-button  {
+    margin-top: 10px;
+    font-family: var(--body-font);
+    color: black;
+}
+
 section.top {
     position:fixed;
     width: 200px;

@@ -18,7 +18,9 @@ function App() {
       setNavOpen={setNavOpen} 
       display={display}
       setDisplay={setDisplay}/>
-      <Main display={display}/>
+      <Main 
+      display={display}
+      setDisplay={setDisplay}/>
     </Fragment>
   );
 }
