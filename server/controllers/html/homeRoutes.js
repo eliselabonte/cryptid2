@@ -1,7 +1,5 @@
 const router = require('express').Router();
 const { Post, User } = require('../../models');
-const withAuth = require('../../utils/auth');
-
 
 router.get('/', async (req, res) => {
   try {
@@ -30,8 +28,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Use withAuth middleware to prevent access to route
-router.get('/create', withAuth, async (req, res) => {
+router.get('/create', async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
