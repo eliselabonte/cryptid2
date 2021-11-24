@@ -2,6 +2,7 @@ import './blog.scss';
 
 export default function Blog() {
     return  (
+        // this is for all posts or a specific category
         <div className='blog'>
             <h2 className='blog-title'>UFO Reports</h2>
             <div className='report'>
