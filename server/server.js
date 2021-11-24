@@ -23,7 +23,7 @@ const sess = {
 
 app.use(session(sess));
 
-server.applyMiddleware({ app });
+// server.applyMiddleware({ app });
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
