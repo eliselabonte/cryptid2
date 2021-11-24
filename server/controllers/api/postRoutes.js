@@ -1,10 +1,9 @@
 const router = require('express').Router();
 const { Post, User, Tag } = require('../../models');
-const withAuth = require('../../utils/auth');
 
 
 // Get all posts - inludes associated User and Tag data
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const posts = await Post.findAll({
       include: [ { model: User }, { model: Tag } ]
@@ -18,7 +17,7 @@ router.get('/', withAuth, async (req, res) => {
 
 
 // Get a Post by ID
-router.get('/:id', withAuth, async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const post = await Post.findByPk(req.params.id, {
       include: [ { model: User }, { model: Tag } ]
@@ -32,7 +31,7 @@ router.get('/:id', withAuth, async (req, res) => {
 
 
 // Creating a new post
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const {report, description, location, timeSeen, category_id} = req.body
     const newPost = await Post.create({report, description, location, timeSeen, user_id: req.session.user_id, category_id});
@@ -46,7 +45,7 @@ router.post('/', withAuth, async (req, res) => {
 
   // update a post by its `id` value
 
-router.put('/:id', withAuth, (req, res) => {
+router.put('/:id', (req, res) => {
     Post.update(
         req.body,
         {where: { id: req.params.id } 
@@ -59,7 +58,7 @@ router.put('/:id', withAuth, (req, res) => {
 
 
 // Delete post by ID
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const post = await Post.destroy({
       where: {
