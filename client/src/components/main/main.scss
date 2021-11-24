@@ -3,7 +3,7 @@ main    {
     position: relative;
     top:16vh;
     z-index:1;
-    height: 100%;
+    height: 100vh;
     width: 100%;
     min-height: 95vh;
     display: flex;
@@ -27,9 +27,9 @@ a:-webkit-any-link  {
 h1.cryptid.homepage    {
     position: relative;
     font-size: 50px;
-    margin-top: 10px;
     color: black;
     margin: 0px;
+    margin-top: 10px;
     top: 0px;
 }
 
@@ -42,7 +42,7 @@ h2.tagline.homepage  {
     display: inline;
     width: 90%;
     text-align: center;
-    margin-top: 15px;
+    margin-top: 30px;
     margin-bottom: 20px;
 }
 
