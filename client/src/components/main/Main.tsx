@@ -4,15 +4,17 @@ import Homepage from './homepage/Homepage';
 import Authentication from './auth/Authentication';
 import Blog from './blog/blog';
 import Dashboard from './dashboard/Dashboard';
+import SearchLanding from './searchLanding/SearchLanding';
+import Creatures from './creature/Creatures';
 import Profile from './profile/Profile';
 
 export default function Main(props:any) {
     const {display, setDisplay} = props;
     
     return (
-        <main>
+        <main className='main'>
             {/* toggle className 'homepage'  on h1 and h2 elements for  homepage display*/}
-            <a href='top'>
+            <a href='#top'>
                 <h1 
                 className={display === 'Homepage' ? 'cryptid homepage' : 'cryptid'} 
                 onClick={() => setDisplay('Homepage')}>CRYPT-ID</h1>
@@ -23,6 +25,8 @@ export default function Main(props:any) {
             { display === 'Blog' ? <Blog /> : null }
             { display === 'Authentication' ? <Authentication /> : null }
             { display === 'Profile' ? <Profile /> : null }
+            { display === 'Creatures' ? <Creatures /> : null }
+            { display === 'SearchLanding' ? <SearchLanding /> : null }
             { display === 'Dashboard' ? <Dashboard /> : null }
             {/* the section below can be toggled on and off to view imported fonts. (for dev only) */}
             {/* <div className='fonts'>

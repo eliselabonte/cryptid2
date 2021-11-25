@@ -29,6 +29,7 @@ Tag.belongsToMany(Post, {
   through: PostTag
 });
 
+Creature.hasMany(Tag, {as: 'tags'});
 
 
 module.exports = { 

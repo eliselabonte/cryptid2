@@ -17,6 +17,16 @@ export default function Navigation(props:any)   {
                 <li className="navbtn" onClick={() => setDisplay('Dashboard')}>
                     <a href='#scrollDown'>Dashboard</a>
                 </li>
+                <li className="navbtn" onClick={() => setDisplay('Creatures')}>
+                    <a href='#scrollDown'>Creatures</a>
+                </li>
+                {/* <li className="navbtn" onClick={() => setDisplay('Dashboard')}>
+                    <a href='#scrollDown'>Dashboard</a>
+                </li>
+                <li className="navbtn" onClick={() => setDisplay('Dashboard')}>
+                    <a href='#scrollDown'>Dashboard</a>
+                </li> */}
+                {/* add search landing page */}
             </ul>
         </nav>
     )
