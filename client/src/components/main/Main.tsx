@@ -17,12 +17,13 @@ export default function Main(props:any) {
                 className={display === 'Homepage' ? 'cryptid homepage' : 'cryptid'} 
                 onClick={() => setDisplay('Homepage')}>CRYPT-ID</h1>
             </a>
-            <h2 className="tagline">a place for believers, theorists, and those who have seen the unexplainable....</h2>
+            <h2 className={display === 'Homepage' ? 'tagline homepage' : 'tagline'}>a place for believers, theorists, and those who have seen the unexplainable....</h2>
             <span id='scrollDown'></span>
             { display === 'Homepage' ? <Homepage /> : null }
             { display === 'Blog' ? <Blog /> : null }
             { display === 'Authentication' ? <Authentication /> : null }
             { display === 'Profile' ? <Profile /> : null }
+            { display === 'Dashboard' ? <Dashboard /> : null }
             {/* the section below can be toggled on and off to view imported fonts. (for dev only) */}
             {/* <div className='fonts'>
                 <p className='title'>title</p>

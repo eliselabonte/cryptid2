@@ -9,11 +9,11 @@ function App() {
   const [navOpen, setNavOpen] = useState<Boolean>(false);
 
   const [display, setDisplay] = useState('Homepage');
+  
   return (
     <Auth0ProviderWithHistory>
-    // react fragment allows us to group our sections under one parent (as per React) w/o creating a new div
-
-    // (good practice to limit extraneous divs)
+    {/* react fragment allows us to group our sections under one parent (as per React) w/o creating a new div
+    (good practice to limit extraneous divs)  */}
     <Fragment>
       <Intro />
       <Header 
@@ -26,7 +26,6 @@ function App() {
       setDisplay={setDisplay}/>
     </Fragment>
     </Auth0ProviderWithHistory>
-
   );
 }
 

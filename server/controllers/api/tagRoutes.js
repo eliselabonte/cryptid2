@@ -1,10 +1,9 @@
 const router = require('express').Router();
 const { Tag, Post, PostTag } = require('../../models');
-const withAuth = require('../../utils/auth');
 
 // The `/api/tags` endpoint
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   // find all tags
   // be sure to include its associated Product data
     try{
@@ -19,7 +18,7 @@ router.get('/', withAuth, async (req, res) => {
     }
 });
 
-router.get('/:id', withAuth, async (req, res) => {
+router.get('/:id', async (req, res) => {
   // find a single tag by its `id`
     try {
         const tags = await Tag.findByPk(req.params.id, {
@@ -32,7 +31,7 @@ router.get('/:id', withAuth, async (req, res) => {
     }
 });
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   // create a new tag
     try {
         const newTag = await Tag.create(req.body)
@@ -41,7 +40,7 @@ router.post('/', withAuth, async (req, res) => {
     catch (err) {res.status(500).json(err)}
 });
 
-router.put('/:id', withAuth, (req, res) => {
+router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
     Tag.update(
         req.body,
@@ -51,7 +50,7 @@ router.put('/:id', withAuth, (req, res) => {
     }).catch((err) => res.status(500).json(err))
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   // delete on tag by its `id` value
     try {
         const tag = await Tag.destroy({

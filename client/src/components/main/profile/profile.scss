@@ -1,0 +1,90 @@
+div.Profile    {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    margin-top: 50px;
+    width: 100%;
+}
+
+section.user-stuff  {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+img.profile-pic {
+    height: 100px;
+    width: auto;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+div.my-creatures    {
+    background-color: var(--post);
+    border-radius: 20px;
+    padding: 10px;
+
+    > h4    {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+}
+
+div.column-left {
+    flex: 0.3;
+    height: 50%;
+    margin-left: 10px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+div.column-right    {
+    flex: 0.7;
+}
+
+div.my-reports  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 10px;
+}
+
+div.report  {
+    width:90%;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--post);
+}
+
+h2.blog-title   {
+    margin-bottom: 20px;
+}
+
+section.report-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+p.report    {
+    margin-top: 10px;
+    text-align: justify;
+}
+
+ul.tags-list    {
+    width:90%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
