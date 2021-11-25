@@ -5,7 +5,7 @@ import Hamburger from './hamburger/Hamburger';
 import Navigation from './nav/Navigation';
 
 export default function Header(props: any) {
-    const { navOpen, setNavOpen, display, setDisplay } = props;
+    const { navOpen, setNavOpen, /*display, */setDisplay } = props;
 
     return (
         <header className='header'>
