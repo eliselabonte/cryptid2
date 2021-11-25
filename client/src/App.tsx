@@ -25,6 +25,8 @@ function App() {
       display={display}
       setDisplay={setDisplay}/>
     </Fragment>
+    </Auth0ProviderWithHistory>
+
   );
 }
 
