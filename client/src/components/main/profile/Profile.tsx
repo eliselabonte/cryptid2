@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 // this image is for dev, will be replaced by imported image
 import ProfilePic from '../../../images/nosferatu.png';
 import './profile.scss';
@@ -8,7 +8,7 @@ function Profile() {
         <div className='Profile'>
             <div className='column-left'>
                 <section className='user-stuff'>
-                    <img className='profile-pic' src={ProfilePic}/>
+                    <img className='profile-pic' src={ProfilePic} alt="profile" />
                     <h3 className='username'>username</h3>
                     <h4 className='bio'>a little bio about me, a fellow monster hunter</h4>
                 </section>
@@ -78,7 +78,6 @@ function Profile() {
                 </div>
             </div>
         </div>
-
     )
 }
 

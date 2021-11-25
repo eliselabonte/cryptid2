@@ -2,9 +2,9 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection');
 
-class Creature extends Model { }
+class Creature extends Model { };
 
-Post.Creature(
+Creature.init(
   {
     id: {
       type: DataTypes.INTEGER,
