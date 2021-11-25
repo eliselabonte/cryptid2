@@ -5,6 +5,8 @@ input.search   {
     text-align: right;
     font-family: var(--other-font);
     height: 20px;
+    width: 150px;
+    position: fixed;
 }
 
 input.search:hover  {

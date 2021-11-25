@@ -9,7 +9,7 @@ export default function Header(props: any) {
 
     return (
         <header className='header'>
-            <img src={Trees} className='trees' alt='a dark blue treeline'/>
+            <img src={Trees} className='trees' alt='dark blue treeline'/>
             <section className='top'>
                 <Searchbar />
                 <div className='burger-links'>
