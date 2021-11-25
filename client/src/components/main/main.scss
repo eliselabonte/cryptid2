@@ -1,7 +1,8 @@
-main    {
+main.main    {
     background-color: var(--blue);
     position: relative;
     top:16vh;
+    padding-top: 20px;
     z-index:1;
     height: 100vh;
     width: 100%;
@@ -26,10 +27,11 @@ a:-webkit-any-link  {
 
 h1.cryptid.homepage    {
     position: relative;
+    text-align: center;
     font-size: 50px;
     color: black;
     margin: 0px;
-    margin-top: 10px;
+    // margin-top: 30px;
     top: 0px;
 }
 
@@ -39,10 +41,10 @@ h2.tagline  {
 
 h2.tagline.homepage  {
     // height: 100px;
-    display: inline;
-    width: 90%;
+    display: block;
+    width: 100%;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 40px;
     margin-bottom: 20px;
 }
 

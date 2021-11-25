@@ -9,14 +9,16 @@ export default function Header(props: any) {
 
     return (
         <header className='header'>
-            <img src={Trees} className='trees' alt='a dark blue treeline'/>
+            <img src={Trees} className='trees' alt='dark blue treeline'/>
             <section className='top'>
                 <Searchbar />
                 <div className='burger-links'>
                     <Hamburger 
                     navOpen={navOpen} 
                     setNavOpen={setNavOpen}/>
-                    <a href='#scrollDown' className='login-button' onClick={() => setDisplay('Authentication')}>Log In</a>
+                    <a href='#scrollDown' 
+                    className='login-button' 
+                    onClick={() => setDisplay('Authentication')}>Log In</a>
                 </div>
             </section>
             <Navigation 
