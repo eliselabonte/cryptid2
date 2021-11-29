@@ -14,7 +14,7 @@ export default function Main(props:any) {
     return (
         <main className='main'>
             {/* toggle className 'homepage'  on h1 and h2 elements for  homepage display*/}
-            <a href='#top'>
+            <a href='top'>
                 <h1 
                 className={display === 'Homepage' ? 'cryptid homepage' : 'cryptid'} 
                 onClick={() => setDisplay('Homepage')}>CRYPT-ID</h1>

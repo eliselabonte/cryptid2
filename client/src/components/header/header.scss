@@ -16,18 +16,27 @@ div.burger-links  {
     width: 110px;
 }
 
-a.login-button  {
-    margin-top: 10px;
+button.login-button  {
+    // margin-top: 5px;
     font-size: 25px;
     font-family: var(--body-font);
-    color: black;
+    color: white;
+    background-color: transparent;
+    border: none;
 }
 
-a.login-button:hover    {
+button.login-button:hover    {
     color: var(--orange);
+    background-color: transparent;
 }
 
-section.top {
+
+button.login-button.open:hover    {
+    color: var(--blue);
+    background-color: transparent;
+}
+
+section.stationary {
     position:fixed;
     width: 200px;
     z-index:20;
