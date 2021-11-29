@@ -1,4 +1,5 @@
 import './blog.scss';
+import { FaStar } from 'react-icons/fa';
 
 export default function Blog() {
     return  (
@@ -11,12 +12,17 @@ export default function Blog() {
                     <h4 className='report-name-date'>by Name on Date</h4>
                 </section>
                 <p className='report'>Report report report report Report report report report Report report report report Report report report report Report report report report Report report report report Report report report report.</p>
-                <ul className='tags-list'>
-                    <li className='report-tag'>#tag</li>
-                    <li className='report-tag'>#tag</li>
-                    <li className='report-tag'>#tag</li>
-                    <li className='report-tag'>#tag</li>
-                </ul>
+                <div className='report-bottom'>
+                    <ul className='tags-list'>
+                        <li className='report-tag'>#tag</li>
+                        <li className='report-tag'>#tag</li>
+                        <li className='report-tag'>#tag</li>
+                        <li className='report-tag'>#tag</li>
+                    </ul>
+                    <FaStar 
+                    className='star-icon'
+                    />
+                </div>
             </div>
             <div className='report'>
                 <section className='report-info'>

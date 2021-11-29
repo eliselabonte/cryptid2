@@ -8,15 +8,19 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 
 export default function Header(props: any) {
-    const { navOpen, setNavOpen, /*display, */setDisplay } = props;
+    const { navOpen, setNavOpen, display, setDisplay } = props;
 
-    const { loginWithRedirect, logout, user, isLoading} = useAuth0();
+    const { loginWithRedirect, logout, user, isLoading } = useAuth0();
 
     return (
         <header className='header'>
             <img src={Trees} className='trees' alt='dark blue treeline'/>
-            <section className='top'>
-                <Searchbar />
+            <section className='stationary'>
+
+                <Searchbar 
+                display={display}
+                setDisplay={setDisplay}/>
+
                 <div className='burger-links'>
                     <Hamburger 
                     navOpen={navOpen} 
@@ -26,16 +30,16 @@ export default function Header(props: any) {
                     onClick={() => setDisplay('Authentication')}>Log In</a> */}
                     
                     {/* auth 0 button */}
-                     {!isLoading && !user && (
+                    {!isLoading && !user && (
                     <button
-                        className="btn btn-primary btn-block"
+                        className={ navOpen ? 'login-button open' : 'login-button'}
                         onClick={() => loginWithRedirect()}> 
                         Log In
                     </button>
                     )}
                     {!isLoading && user && (
                     <button
-                        className="btn btn-primary btn-block"
+                        className={ navOpen ? 'login-button open' : 'login-button'}
                         onClick={() => logout()}> 
                         Log Out
                     </button>

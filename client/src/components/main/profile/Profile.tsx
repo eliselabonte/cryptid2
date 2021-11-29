@@ -10,7 +10,7 @@ function Profile() {
                 <section className='user-stuff'>
                     <img className='profile-pic' src={ProfilePic} alt="profile" />
                     <h3 className='username'>username</h3>
-                    <h4 className='bio'>a little bio about me, a fellow monster hunter</h4>
+                    <h4 className='bio'>a bit about me, a fellow monster hunter</h4>
                 </section>
                 <div className='my-creatures'>
                     <h4>Creatures on my radar</h4>

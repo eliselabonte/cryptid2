@@ -1,0 +1,32 @@
+div.searchLanding   {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 50px;
+    width: 100%;
+}
+
+h2.search-landing-title {
+    color: white;
+}
+
+div.search-result   {
+    background-color: var(--post);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 80%;
+    min-height: 100px;
+    margin: 20px;
+}
+
+div.search-result:hover {
+    background-color: white;
+}
+
+// h3.report-title {
+
+// }

@@ -3,7 +3,7 @@ import './dashboard.scss';
 export default function Dashboard()  {
     return  (
         <div className='dashboard'>
-            <h2>DASHBOARD</h2>
+            <h2 className='dashboard-title'>Dashboard</h2>
             <h3 className='dashboard-description'>Posts that \username\ has saved</h3>
 
             <div className='report'>

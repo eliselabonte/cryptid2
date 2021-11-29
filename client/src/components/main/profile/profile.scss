@@ -12,6 +12,13 @@ section.user-stuff  {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    background-color: var(--post);
+    border-radius: 20px;
+    padding: 10px;
+
+    > h4.bio    {
+        font-size: 20px;
+    }
 }
 
 img.profile-pic {
@@ -40,6 +47,10 @@ div.column-left {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+
+    > div, section   {
+        margin-bottom: 10px;
+    }
 }
 
 div.column-right    {
