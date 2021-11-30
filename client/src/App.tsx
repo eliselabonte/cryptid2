@@ -6,25 +6,22 @@ import './App.scss';
 import Auth0ProviderWithHistory from './auth0Provider';
 
 function App() {
-  const [navOpen, setNavOpen] = useState<Boolean>(false);
+  const [navOpen, setNavOpen] = useState<boolean>(false);
 
   const [display, setDisplay] = useState('Homepage');
 
   return (
     <Auth0ProviderWithHistory>
-    {/* react fragment allows us to group our sections under one parent (as per React) w/o creating a new div
-    (good practice to limit extraneous divs)  */}
-    <Fragment>
       <Intro />
-      <Header 
-      navOpen={navOpen} 
-      setNavOpen={setNavOpen} 
-      display={display}
-      setDisplay={setDisplay}/>
-      <Main 
-      display={display}
-      setDisplay={setDisplay}/>
-    </Fragment>
+        <Header 
+        // useContext for navOpen and display
+        navOpen={navOpen} 
+        setNavOpen={setNavOpen} 
+        display={display}
+        setDisplay={setDisplay}/>
+        <Main 
+        display={display}
+        setDisplay={setDisplay}/>
     </Auth0ProviderWithHistory>
   );
 }
