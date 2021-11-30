@@ -1,4 +1,5 @@
 import './navigation.scss';
+import { Link } from 'react-router-dom';
 // import React from 'react';
 
 export default function Navigation(props:any)   {
@@ -8,25 +9,15 @@ export default function Navigation(props:any)   {
         <nav className={`Nav ${navOpen ? '' : 'hidden'}`}>
             <ul className='nav-list'>
                 {/* TODO: list functionality */}
-                <li className="navbtn" onClick={() => setDisplay('Profile')}>
-                    <a href='#scrollDown'>Profile</a>
+                <li className="navbtn">
+                    <Link to='/profile/:id'>Profile</Link>
                 </li>
                 <li className="navbtn" onClick={() => setDisplay('Blog')}>
-                    <a href='#scrollDown'>Blog</a>
+                    <Link to='/blog/:id'>Blog</Link>
                 </li>
                 <li className="navbtn" onClick={() => setDisplay('Dashboard')}>
-                    <a href='#scrollDown'>Dashboard</a>
+                        <Link to='/dashboard'>Dashboard</Link>
                 </li>
-                <li className="navbtn" onClick={() => setDisplay('Creatures')}>
-                    <a href='#scrollDown'>Creatures</a>
-                </li>
-                {/* <li className="navbtn" onClick={() => setDisplay('Dashboard')}>
-                    <a href='#scrollDown'>Dashboard</a>
-                </li>
-                <li className="navbtn" onClick={() => setDisplay('Dashboard')}>
-                    <a href='#scrollDown'>Dashboard</a>
-                </li> */}
-                {/* add search landing page */}
             </ul>
         </nav>
     )

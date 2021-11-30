@@ -1,3 +1,89 @@
+* {
+    --dark-gray:rgb(42, 42, 42);
+    --blue: #184169;
+    --orange: #FB7946;
+    --nav-orange: #fb7946b2;
+    --brown: #C67E58;
+    --tan: #DDB37E;
+    --red: #823246;
+    --post: rgba(255, 255, 255, 0.342);
+
+    // fonts
+    --title-font: 'Press Start 2P', cursive;
+    --body-font: 'Yuji Syuku', serif;
+    --special-font:'Special Elite', cursive;
+    --other-font:'Inconsolata', monospace;
+}
+
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: none;
+}
+
+footer, header, nav, section, main{
+    display: block;
+}
+
+body{
+    line-height: 1;
+    height: 100%;
+}
+
+ol, ul{
+    list-style: none;
+}
+
+blockquote, q{
+    quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after{
+    content: '';
+    content: none;
+}
+
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+input{
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+
+h1  {
+    font-size: 45px;
+    font-family: var(--title-font);
+}
+
+h2  {
+    font-size: 30px;
+    font-family: var(--special-font);
+}
+
+h3  {
+    font-size: 20px;
+    font-family: var(--special-font);
+}
+
+h4  {
+    font-size: 15px;
+    font-family: var(--other-font);
+}
+
+p, li  {
+    font-size: 15px;
+    font-family: var(--body-font);
+}
+
 body    {
     background-color: var(--dark-gray);
     display: flex;
