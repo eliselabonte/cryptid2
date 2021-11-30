@@ -1,9 +1,13 @@
+const fs = require('fs')
+
 const User = require('./user');
 const Category = require('./category')
 const Post = require('./post');
 const Tag = require('./tag');
 const PostTag = require('./postTag');
-const Creature = require('./creature')
+const Creature = require('./creature');
+require('./search');
+
 
 User.hasMany(Post, {
   foreignKey: 'user_id',
@@ -40,3 +44,18 @@ module.exports = {
   PostTag,
   Creature
   };
+
+
+let models = {}
+
+  fs. readdirSync(__dirname).forEarch(function (file) {
+    if(~file.indexOf('.js') && file.indexOf(index.js) < 0) {
+      let model = sequalize.import(file);
+      console.log(model.name);
+      models[model.name] = model;
+    }
+  });
+
+  sequalize.sync().done(function() {
+    models.Search.addFullTextIndex();
+  });
