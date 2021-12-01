@@ -1,4 +1,5 @@
 const fs = require('fs')
+const Sequelize = require('sequelize');
 
 const User = require('./user');
 const Category = require('./category')
@@ -55,14 +56,14 @@ module.exports = {
 
 let models = {}
 
-  fs. readdirSync(__dirname).forEarch(function (file) {
-    if(~file.indexOf('.js') && file.indexOf(index.js) < 0) {
-      let model = sequalize.import(file);
+  fs. readdirSync(__dirname).forEach(function (file) {
+    if(~file.indexOf('.js') && file.indexOf('index.js') < 0) {
+      model = Sequelize.import(file);
       console.log(model.name);
       models[model.name] = model;
     }
   });
 
-  sequalize.sync().done(function() {
+  sequelize.sync().done(function() {
     models.Search.addFullTextIndex();
   });
