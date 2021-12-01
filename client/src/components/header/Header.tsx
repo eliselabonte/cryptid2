@@ -3,12 +3,11 @@ import Trees from '../../images/trees.png';
 import Searchbar from './search/Searchbar';
 import Hamburger from './hamburger/Hamburger';
 import Navigation from './nav/Navigation';
-// added auth 0
 import { useAuth0 } from "@auth0/auth0-react";
 
 
 export default function Header(props: any) {
-    const { navOpen, setNavOpen, display, setDisplay } = props;
+    const { navOpen, setNavOpen, search, setSearch } = props;
 
     const { loginWithRedirect, logout, user, isLoading } = useAuth0();
 
@@ -18,8 +17,8 @@ export default function Header(props: any) {
             <section className='stationary'>
 
                 <Searchbar 
-                display={display}
-                setDisplay={setDisplay}/>
+                search={search}
+                setSearch={setSearch}/>
 
                 <div className='burger-links'>
                     <Hamburger 
@@ -47,8 +46,7 @@ export default function Header(props: any) {
                 </div>
             </section>
             <Navigation 
-            navOpen={navOpen}
-            setDisplay={setDisplay}/>
+            navOpen={navOpen}/>
         </header>
     )
 }

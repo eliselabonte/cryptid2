@@ -53,6 +53,10 @@ div.column-left {
     }
 }
 
+h2.profile-title    {
+    color:white;
+}
+
 div.column-right    {
     flex: 0.7;
 }
@@ -75,10 +79,6 @@ div.report  {
     justify-content: space-between;
     align-items: center;
     background-color: var(--post);
-}
-
-h2.blog-title   {
-    margin-bottom: 20px;
 }
 
 section.report-info {
