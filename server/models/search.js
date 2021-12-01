@@ -4,13 +4,13 @@
 
 module.exports = {
     up: function (getQueryInterface, sequelize) {
-        let sequelize = getQueryInterface.sequelize,
+        let sequelizeSearch = getQueryInterface.sequelize,
         // These may have to change to meet the already defined parameters in the database
             searchFields = ['name', 'description'],
             vectorName = "[column_name]",
             tableName = "[table_name]";
 
-        return sequelize
+        return sequelizeSearch
             .query('ALTER TABLE "' + tableName + '" ADD COLUMN "' + vectorName + '" TSVECTOR')
             .then(function () {
                 console.log("Column added: Adding updating values")
@@ -33,12 +33,12 @@ module.exports = {
     },
 
     down: function (queryInterface, sequelize) {
-        let sequelize = queryInterface, sequelize,
+        let sequelizeSearch = queryInterface.sequelize,
             searchFields = ['name', 'description'],
             vectorName = "[column_name]",
             tableName = "[table_name]";
 
-        return sequelize
+        return sequelizeSearch
             .query('DROP TRIGGER np_vector_update ON "' + tableName + '"')
             .then(function () {
                 console.log("removed trigger")

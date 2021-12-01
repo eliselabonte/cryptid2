@@ -5,6 +5,7 @@ import App from "./App";
 const rootElement = document.getElementById("root");
 
 render(
-  <AllRoutes />
+  <AllRoutes>
+  </AllRoutes>
   ,rootElement
 );

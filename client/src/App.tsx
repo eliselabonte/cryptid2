@@ -7,13 +7,15 @@ import Dashboard from "./components/switchDisplay/dashboard/Dashboard";
 import Profile from "./components/switchDisplay/profile/Profile";
 import SearchLanding from "./components/switchDisplay/searchLanding/SearchLanding";
 import useSearch from './useSearch';
+import { Children } from "react";
 
-export default function App() {
+export default function AllRoutes(children:any) {
     const {search, setSearch, results} = useSearch();
 
     return(
         <BrowserRouter>
             <Routes>
+            {children}
             <Route path="/" element={<Layout search={search} setSearch={setSearch} />}>
                 <Route path='/' element={<Homepage />}/>
                 <Route path='/blog/:id' element={<Blog />}/>
