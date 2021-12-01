@@ -1,29 +1,29 @@
-import React, { Fragment, useState } from 'react';
-import Intro from './components/intro/Intro';
-import Header from './components/header/Header';
-import Main from './components/main/Main';
-import './App.scss';
-import Auth0ProviderWithHistory from './auth0Provider';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./Layout";
+import Homepage from "./components/switchDisplay/homepage/Homepage";
+import Blog from "./components/switchDisplay/blog/blog";
+import Creatures from "./components/switchDisplay/creature/Creatures";
+import Dashboard from "./components/switchDisplay/dashboard/Dashboard";
+import Profile from "./components/switchDisplay/profile/Profile";
+import SearchLanding from "./components/switchDisplay/searchLanding/SearchLanding";
+import useSearch from './useSearch';
 
-function App() {
-  const [navOpen, setNavOpen] = useState<boolean>(false);
+export default function App() {
+    const {search, setSearch, results} = useSearch();
 
-  const [display, setDisplay] = useState('Homepage');
-
-  return (
-    <Auth0ProviderWithHistory>
-      <Intro />
-        <Header 
-        // useContext for navOpen and display
-        navOpen={navOpen} 
-        setNavOpen={setNavOpen} 
-        display={display}
-        setDisplay={setDisplay}/>
-        <Main 
-        display={display}
-        setDisplay={setDisplay}/>
-    </Auth0ProviderWithHistory>
-  );
+    return(
+        <BrowserRouter>
+            <Routes>
+            <Route path="/" element={<Layout search={search} setSearch={setSearch} />}>
+                <Route path='/' element={<Homepage />}/>
+                <Route path='/blog/:id' element={<Blog />}/>
+                <Route path='/creatures/:id' element={<Creatures />}/>
+                <Route path='/dashboard' element={<Dashboard />}/>
+                <Route path='/profile/:id' element={<Profile />}/>
+                <Route path='/search/:searchItems' 
+                element={<SearchLanding results={results}/>}/>
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    )
 }
-
-export default App;

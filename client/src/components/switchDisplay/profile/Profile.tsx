@@ -23,7 +23,7 @@ function Profile() {
             </div>
 
             <div className='my-reports column-right'>
-                <h2 className='Profile-title'>My Reports</h2>
+                <h2 className='profile-title'>My Reports</h2>
                 <div className='report'>
                     <section className='report-info'>
                         <h3 className='report-title'>Report Title</h3>

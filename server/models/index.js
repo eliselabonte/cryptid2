@@ -6,6 +6,7 @@ const Post = require('./post');
 const Tag = require('./tag');
 const PostTag = require('./postTag');
 const Creature = require('./creature');
+const UserPost = require('./userPost');
 require('./search');
 
 
@@ -17,12 +18,18 @@ User.hasMany(Post, {
 Category.hasMany(Post, { as: "posts" });
 
 Post.belongsTo(Category, {
-  foreignKey: 'category_id',
-  // as: 'category'
+  foreignKey: 'category_id'
 });
 
-Post.belongsTo(User, {
-  foreignKey: 'user_id'
+// user has many posts which they have written,
+// user has many posts which they have favorited,
+// posts can be saved by many users
+Post.belongsToMany(User, {
+  through: UserPost
+});
+
+User.belongsToMany(Post, {
+  through: UserPost
 });
 
 Post.belongsToMany(Tag, {
