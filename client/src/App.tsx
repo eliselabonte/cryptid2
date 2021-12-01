@@ -15,8 +15,8 @@ export default function AllRoutes(children:any) {
     return(
         <BrowserRouter>
             <Routes>
+            {children}
             <Route path="/" element={<Layout search={search} setSearch={setSearch} />}>
-                {children}
                 <Route path='/' element={<Homepage />}/>
                 <Route path='/blog/:id' element={<Blog />}/>
                 <Route path='/creatures/:id' element={<Creatures />}/>
