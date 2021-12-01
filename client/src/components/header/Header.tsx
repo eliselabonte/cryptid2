@@ -8,7 +8,7 @@ import AuthNav from './login/auth-nav';
 
 
 export default function Header(props: any) {
-    const { navOpen, setNavOpen, display, setDisplay } = props;
+    const { navOpen, setNavOpen, search, setSearch } = props;
 
     // const { loginWithRedirect, logout, user, isLoading } = useAuth0();
 
@@ -18,8 +18,8 @@ export default function Header(props: any) {
             <section className='stationary'>
 
                 <Searchbar 
-                display={display}
-                setDisplay={setDisplay}/>
+                search={search}
+                setSearch={setSearch}/>
 
                 <div className='burger-links'>
                     <Hamburger 
@@ -32,8 +32,7 @@ export default function Header(props: any) {
                 </div>
             </section>
             <Navigation 
-            navOpen={navOpen}
-            setDisplay={setDisplay}/>
+            navOpen={navOpen}/>
         </header>
     )
 }

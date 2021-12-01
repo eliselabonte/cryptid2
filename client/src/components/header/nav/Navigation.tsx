@@ -9,13 +9,13 @@ export default function Navigation(props:any)   {
         <nav className={`Nav ${navOpen ? '' : 'hidden'}`}>
             <ul className='nav-list'>
                 {/* TODO: list functionality */}
-                <li className="navbtn">
+                <li className="navbtn" >
                     <Link to='/profile/:id'>Profile</Link>
                 </li>
-                <li className="navbtn" onClick={() => setDisplay('Blog')}>
+                <li className="navbtn" >
                     <Link to='/blog/:id'>Blog</Link>
                 </li>
-                <li className="navbtn" onClick={() => setDisplay('Dashboard')}>
+                <li className="navbtn" >
                         <Link to='/dashboard'>Dashboard</Link>
                 </li>
             </ul>

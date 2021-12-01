@@ -1,10 +1,10 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes, NUMBER } = require('sequelize');
 
 const sequelize = require('../config/connection');
 
 class User extends Model {};
 
-
+// add profile picture
 User.init(
   {
     id: {
@@ -39,6 +39,13 @@ User.init(
         len: [8],
       },
     },
+    favorite_post_id:  {
+      type: DataTypes.INTEGER,
+        references: {
+            model: 'posts',
+            key: 'id'
+        }
+    }
   },
   {
     sequelize,
