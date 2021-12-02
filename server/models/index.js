@@ -52,18 +52,3 @@ module.exports = {
   PostTag,
   // Creature
   };
-
-
-// let models = {}
-
-//   fs. readdirSync(__dirname).forEach(function (file) {
-//     if(~file.indexOf('.js') && file.indexOf('index.js') < 0) {
-//       model = Sequelize.import(file);
-//       console.log(model.name);
-//       models[model.name] = model;
-//     }
-//   });
-
-//   sequelize.sync().done(function() {
-//     models.Search.addFullTextIndex();
-//   });
