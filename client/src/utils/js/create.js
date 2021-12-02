@@ -6,8 +6,8 @@ const newFormHandler = async (event) => {
     const description = $('#sighting-description').val().trim();
     const location = $('#sighting-location').val().trim();
     const timeSeen = $('#sighting-time').val().trim();
-    // const category = $('#category').find(":selected").val().trim();
     const category_id = data.get("category");
+
     if (location && report && description && timeSeen && category_id) {
       const response = await fetch(`/api/posts`, {
         method: 'POST',
@@ -15,7 +15,6 @@ const newFormHandler = async (event) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        // body:new FormData(document.getElementById('sighting-report'))
       });
       
       if (response.ok) {

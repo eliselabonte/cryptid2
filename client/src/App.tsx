@@ -8,6 +8,7 @@ import Profile from "./components/switchDisplay/profile/Profile";
 import SearchLanding from "./components/switchDisplay/searchLanding/SearchLanding";
 import useSearch from './useSearch';
 import Auth0ProviderWithHistory from "./auth/auth0-provider-with-history";
+import Create from "./components/switchDisplay/create/create";
 
 export default function AllRoutes(children: any) {
     const { search, setSearch, results } = useSearch();
@@ -22,6 +23,7 @@ export default function AllRoutes(children: any) {
                         <Route path='/creatures/:id' element={<Creatures />} />
                         <Route path='/dashboard' element={<Dashboard />} />
                         <Route path='/profile/:id' element={<Profile />} />
+                        <Route path='/create' element={<Create />} />
                         <Route path='/search/:searchItems'
                             element={<SearchLanding results={results} />} />
                     </Route>

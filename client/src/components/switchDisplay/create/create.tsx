@@ -1,4 +1,4 @@
-export default function create() {
+export default function Create() {
     return (
         
         <div>
