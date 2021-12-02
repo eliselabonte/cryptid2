@@ -8,6 +8,7 @@ import Profile from "./components/switchDisplay/profile/Profile";
 import SearchLanding from "./components/switchDisplay/searchLanding/SearchLanding";
 import useSearch from './useSearch';
 import { read } from "fs";
+import Create from "./components/switchDisplay/create/create";
 
 export default function AllRoutes(children: any) {
     return (
@@ -19,6 +20,7 @@ export default function AllRoutes(children: any) {
                     <Route path='/creatures/:id' element={<Creatures />} />
                     <Route path='/dashboard' element={<Dashboard />} />
                     <Route path='/profile/:id' element={<Profile />} />
+                    <Route path='/create' element={<Create />} />
                     <Route path='/search/:searchItems'
                         element={<SearchLanding results={"results"} />} />
                 </Route>
