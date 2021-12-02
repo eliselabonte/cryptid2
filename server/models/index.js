@@ -6,7 +6,7 @@ const Category = require('./category')
 const Post = require('./post');
 const Tag = require('./tag');
 const PostTag = require('./postTag');
-const Creature = require('./creature');
+// const Creature = require('./creature');
 const UserPost = require('./userPost');
 require('./search');
 
@@ -41,7 +41,7 @@ Tag.belongsToMany(Post, {
   through: PostTag
 });
 
-Creature.hasMany(Tag, {as: 'tags'});
+// Creature.hasMany(Tag, {as: 'tags'});
 
 
 module.exports = { 
@@ -50,20 +50,20 @@ module.exports = {
   Post,
   Tag,
   PostTag,
-  Creature
+  // Creature
   };
 
 
-let models = {}
+// let models = {}
 
-  fs. readdirSync(__dirname).forEach(function (file) {
-    if(~file.indexOf('.js') && file.indexOf('index.js') < 0) {
-      model = Sequelize.import(file);
-      console.log(model.name);
-      models[model.name] = model;
-    }
-  });
+//   fs. readdirSync(__dirname).forEach(function (file) {
+//     if(~file.indexOf('.js') && file.indexOf('index.js') < 0) {
+//       model = Sequelize.import(file);
+//       console.log(model.name);
+//       models[model.name] = model;
+//     }
+//   });
 
-  sequelize.sync().done(function() {
-    models.Search.addFullTextIndex();
-  });
+//   sequelize.sync().done(function() {
+//     models.Search.addFullTextIndex();
+//   });
