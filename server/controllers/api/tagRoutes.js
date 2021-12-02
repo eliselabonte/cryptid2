@@ -6,6 +6,8 @@ const { Tag, Post, PostTag } = require('../../models');
 router.get('/', async (req, res) => {
   // find all tags
   // be sure to include its associated Product data
+
+    // receive req.query using axios
     try{
         const tags = await Tag.findAll({
         include: [{model: Post}]

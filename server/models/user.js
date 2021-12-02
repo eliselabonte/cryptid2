@@ -24,14 +24,6 @@ User.init(
         isEmail: true,
       },
     },
-    favorite: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      references: {
-        model: 'posts',
-        key: 'id',
-      },
-    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -42,7 +34,7 @@ User.init(
     favorite_post_id:  {
       type: DataTypes.INTEGER,
         references: {
-            model: 'posts',
+            model: 'userPosts',
             key: 'id'
         }
     }

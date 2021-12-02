@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import axios from 'axios';
 
 const useSearch = () =>  {
     const [search, setSearch] = useState<string>('');
@@ -13,14 +14,13 @@ const useSearch = () =>  {
             setResults(search)
 
         // add fetch route here:
-        // fetch(`https://localhost:3001/tags/${search}`)
-        // .then((response) => {
-        //     return response.json()
-
-        // }).then((data) =>   {
-        //     console.log({data})
-        //     setResults(data)
-        // });
+        // must proxy server for dev/production
+        axios.get(`/api/tags`)
+        // add query parameters
+        .then((data) =>   {
+            console.log({data})
+            setResults(data.data)
+        });
         }
     else    {
         console.log('search', {search})
