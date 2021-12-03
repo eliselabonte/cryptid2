@@ -8,7 +8,7 @@ import Profile from "./components/switchDisplay/profile/Profile";
 import SearchLanding from "./components/switchDisplay/searchLanding/SearchLanding";
 import useSearch from './useSearch';
 import Post from "./components/switchDisplay/singlePost/post";
-import Auth0ProviderWithHistory from "./auth/auth0-provider-with-history";
+// import Auth0ProviderWithHistory from "./auth/auth0-provider-with-history";
 
 export default function AllRoutes(children: any) {
     const { search, setSearch, results } = useSearch();
@@ -16,7 +16,7 @@ export default function AllRoutes(children: any) {
 
     return (
         <BrowserRouter>
-            <Auth0ProviderWithHistory>
+            {/* <Auth0ProviderWithHistory> */}
                 <Routes>
                     <Route path="/" element={<Layout search={search} setSearch={setSearch} />}>
                         <Route path='/' element={<Homepage />} />
@@ -29,7 +29,7 @@ export default function AllRoutes(children: any) {
                         <Route path='/post/:id' element={<Post />} />
                     </Route>
                 </Routes>
-            </Auth0ProviderWithHistory>
+            {/* </Auth0ProviderWithHistory> */}
         </BrowserRouter>
     )
 }
