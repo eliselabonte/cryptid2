@@ -8,6 +8,7 @@ import Profile from "./components/switchDisplay/profile/Profile";
 import SearchLanding from "./components/switchDisplay/searchLanding/SearchLanding";
 import useSearch from './useSearch';
 import Post from "./components/switchDisplay/singlePost/post";
+import Create from "./components/switchDisplay/create/create";
 // import Auth0ProviderWithHistory from "./auth/auth0-provider-with-history";
 
 export default function AllRoutes(children: any) {
@@ -24,6 +25,7 @@ export default function AllRoutes(children: any) {
                         <Route path='/creatures/:id' element={<Creatures />} />
                         <Route path='/dashboard' element={<Dashboard />} />
                         <Route path='/profile/:id' element={<Profile />} />
+                        <Route path='/create' element={<Create />} />
                         <Route path='/search/:searchItems'
                             element={<SearchLanding results= {results} />} />
                         <Route path='/post/:id' element={<Post />} />
