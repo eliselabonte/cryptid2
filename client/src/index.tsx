@@ -1,17 +1,17 @@
 import { render } from "react-dom";
 import AllRoutes from "./App";
-import App from "./App";
-import { Auth0Provider } from "./auth0Provider";
+// import App from "./App";
+import { Auth0Handler } from "./auth0Provider";
 import Layout from "./Layout";
 
 
 const rootElement = document.getElementById("root");
 
 render(
-  <Auth0Provider>
+  <Auth0Handler>
     <AllRoutes>
       <Layout />
     </AllRoutes>
-  </Auth0Provider>
+  </Auth0Handler>
   , rootElement
 );
