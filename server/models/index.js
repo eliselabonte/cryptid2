@@ -6,10 +6,8 @@ const Category = require('./category')
 const Post = require('./post');
 const Tag = require('./tag');
 const PostTag = require('./postTag');
-// const Creature = require('./creature');
 const UserPost = require('./userPost');
 require('./search');
-
 
 User.hasMany(Post, {
   foreignKey: 'user_id',
@@ -41,14 +39,10 @@ Tag.belongsToMany(Post, {
   through: PostTag
 });
 
-// Creature.hasMany(Tag, {as: 'tags'});
-
-
 module.exports = { 
   User, 
   Category,
   Post,
   Tag,
-  PostTag,
-  // Creature
+  PostTag
   };

@@ -5,7 +5,7 @@ export default function Creatures() {
     return(
         <div className='creatures'>
             <h2 className='creature-title'>Men In Black</h2>
-            <img className='creature-image' src={MIB}/> 
+            <img className='creature-image' alt="monsters" src={MIB}/> 
             <p className='description'>Some creepy alien guys that show up in suits to ruin your day.</p>
             <ul className='creature-data'>
                 <li>wear black</li>
