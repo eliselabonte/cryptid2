@@ -15,8 +15,8 @@ export default function Searchbar(props:Iprops) {
     
     const submit = (event:any) =>  {
         event.preventDefault();
-        
         setSearch(inputValue);
+        console.log(search)
         
         navigate(`/search/${inputValue}`, { replace: true });
 

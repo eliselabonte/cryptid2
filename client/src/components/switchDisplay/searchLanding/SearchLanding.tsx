@@ -1,21 +1,46 @@
 import './searchLanding.scss';
+// import { Iresults } from '../../../useSearch';
+import { Link, useNavigate } from 'react-router-dom';
 interface Iprops {
-    results:string;
+    results:any,
+    // singlePostID:number,
+    // setSinglePostID?:(a:number) => {}
 }
 
 export default function SearchLanding(props:Iprops) {
-    const {results} = props;
+    const { results } = props;
+    const safeResults = results || [];
+    const navigate = useNavigate();
+    const foundPosts = safeResults.map((result:any) => {
+        const safePosts = result.posts || []
+
+        return(
+            <div className='search-result' key={result.tag_name}>
+                <h3 className='report-title'>Tag title: {result.tag_name}</h3>
+                {safePosts.map((post:any) => {
+                    // TODO: return username on post.user_id
+                    return (
+                        <div>
+                            <h4 
+                            onClick={()=> navigate(`/posts/${post.id}`, {replace:true})} 
+                            className='name-date' 
+                            // onClick={() => {singlePostID ? setSinglePostID(post.id): null}}
+                            key={post.id}>by {post.user_id} Location: {post.location}</h4>
+                            <p>{post.report}</p>
+                        </div>
+                    )
+                })}
+            </div>
+        )
+    });
     
     return (
         <div className='searchLanding'>
-            <h2 className='search-landing-title'>{results ? 
-            `Search Results for "${results}"` : 
+            {/* <h2 className='search-landing-title'>{foundPosts ? 
+            `Search Results for "${search}"` : 
             `no results`}
-            </h2>
-            <div className='search-result'>
-                <h3 className='report-title'>Report title</h3>
-                <h4 className='name-date'>by \name\ on \date\</h4>
-            </div>
+            </h2> */}
+            {foundPosts}
         </div>
     )
 }
