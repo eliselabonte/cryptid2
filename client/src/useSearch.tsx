@@ -1,30 +1,33 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+export interface Ipost {
+    description:string;
+    location:string;
+}
+export interface Iresult {
+        tag_name:'';
+        posts:[ Ipost ]
+}
+export interface Iresults {
+    results:[Iresult];
+}
 
 const useSearch = () =>  {
     const [search, setSearch] = useState<string>('');
-    const [results, setResults] = useState<string>('')
+    const [results, setResults] = useState([{}]);
 
     useEffect( () => {
+        // if an item is searched...
         if (search!==undefined)   {
-            console.log('fetching from API...')
-            
-            // lines 12-13 for dev - use lines 15-23 instead once routes are connected 
-            console.log({search})
-            setResults(search)
-
-        // add fetch route here:
-        // must proxy server for dev/production
-        axios.get(`/api/tags`)
-        // add query parameters
-        .then((data) =>   {
-            console.log({data})
-            setResults(data.data)
-        });
+            console.log('fetching from API...', search)
+            // query the tags table
+            axios.get(`/api/tags/${search}`)
+        // TODO: add query parameters
+            .then((res) =>   {
+                const foundResults = res.data
+                setResults(foundResults)
+            });
         }
-    else    {
-        console.log('search', {search})
-    }
     }, [search] );
 
     return {search, setSearch, results};

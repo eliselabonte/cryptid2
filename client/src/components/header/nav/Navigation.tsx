@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 // import React from 'react';
 
 export default function Navigation(props:any)   {
-    const { navOpen, setDisplay } = props;
+    const { navOpen } = props;
 
     return (
         <nav className={`Nav ${navOpen ? '' : 'hidden'}`}>

@@ -12,6 +12,8 @@ function Layout(props: any) {
 
   const [home, setHome] = useState<boolean>(true);
 
+  // const [singlePostID, setSinglePostID] = useState<number>()
+
   // how to set this variable to false any time we are not on home page?
 
   return (
@@ -25,7 +27,10 @@ function Layout(props: any) {
         setSearch={setSearch} />
       <Main
         home={home}
-        setHome={setHome} />
+        setHome={setHome} 
+        // singlePostID={singlePostID}
+        // setSinglePostID={setSinglePostID}
+        />
     </Fragment>
   );
 }

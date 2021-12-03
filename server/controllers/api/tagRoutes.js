@@ -6,7 +6,7 @@ const { Tag, Post, PostTag } = require('../../models');
 router.get('/', async (req, res) => {
   // find all tags
   // be sure to include its associated Product data
-
+    console.log(req.params)
     // receive req.query using axios
     try{
         const tags = await Tag.findAll({
@@ -23,12 +23,16 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   // find a single tag by its `id`
     try {
-        const tags = await Tag.findByPk(req.params.id, {
-        include:  [{model: Post}]
+        const tags = await Tag.findAll( {
+            where: {
+                tag_name: req.params.id
+            },
+            include:  [{model: Post}]
         })
         res.json(tags)
     }
-    catch{
+    catch(err) {
+        console.error(err);
         res.status(404).json(err)
     }
 });
