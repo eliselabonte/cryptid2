@@ -16,7 +16,7 @@
     Cryptid 2.0 is a full-stack MERN application that allows user to create posts to report on the latest sightings and theories of cryptids, UFOs, and the paranormal.
 
   ## Installation:
-    [deployed site](https://git.heroku.com/calm-tundra-54931.git)
+    [deployed site](https://calm-tundra-54931.herokuapp.com/)
     [gitHub repository](https://github.com/eliselabonte/cryptid2)
 
   ## Tools Used:
