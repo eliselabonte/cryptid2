@@ -10,11 +10,11 @@ export default function Navigation(props:any)   {
             <ul className='nav-list'>
                 {/* TODO: list functionality */}
                 <li className='navbtn' >
-                    <Link to='/profile/:id'>Profile</Link>
+                    <Link to='/profile/'>Profile</Link>
                 </li>
-                <li className='navbtn' >
-                    <Link to='/blog/:id'>Blog</Link>
-                </li>
+                {/* <li className='navbtn' >
+                    <Link to='/blog/'>Blog</Link>
+                </li> */}
                 <li className='navbtn' >
                     <Link to='/dashboard'>Dashboard</Link>
                 </li>
