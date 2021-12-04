@@ -12,9 +12,9 @@ export default function Navigation(props:any)   {
                 <li className='navbtn' >
                     <Link to='/profile/:id'>Profile</Link>
                 </li>
-                <li className='navbtn' >
-                    <Link to='/blog/:id'>Blog</Link>
-                </li>
+                {/* <li className='navbtn' >
+                    <Link to='/blog/'>Blog</Link>
+                </li> */}
                 <li className='navbtn' >
                     <Link to='/dashboard'>Dashboard</Link>
                 </li>

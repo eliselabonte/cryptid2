@@ -12,14 +12,14 @@ export interface Iresults {
     results:[Iresult];
 }
 
-const useSearch = () =>  {
+export const useSearch = () =>  {
     const [search, setSearch] = useState<string>('');
     const [results, setResults] = useState([{}]);
 
     useEffect( () => {
         // if an item is searched...
         if (search!==undefined)   {
-            console.log('fetching from API...', search)
+            console.log('fetching searchResults from API...', search)
             // query the tags table
             axios.get(`/api/tags/${search}`)
         // TODO: add query parameters
@@ -31,6 +31,28 @@ const useSearch = () =>  {
     }, [search] );
 
     return {search, setSearch, results};
-}
+};
 
-export default useSearch;
+export const useBlogData = () => {
+
+    const [category, setCategory] = useState<string>('cryptid')
+    const [posts, setPosts] = useState<[{}]>([{}])
+
+    // useEffect(() => {
+    //     if (category!==undefined)   {
+    //         console.log(`fetching ${category} from API...`)
+
+    //         axios.get(`/api/tags/`)
+    //         .then((res) =>   {
+    //             const foundResults = res.data
+    //             console.log(foundResults)
+    //             setPosts(foundResults)
+    //         })
+    //         .catch((err) =>    {
+    //             console.error(err)
+    //         }) ;
+    //     }
+    //     }, [category])
+
+    return {category, setCategory};
+}
