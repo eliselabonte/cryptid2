@@ -1,0 +1,48 @@
+div.create-div  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+    margin-top: 30px;
+}
+
+h3.report-div-title {
+    font-size: 25px;
+}
+
+p.search-info   {
+    font-size: 20px;
+}
+
+form.new-sighting-form.form {
+    margin-top: 20px;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--post);
+    border-radius: 20px;
+
+    > div.form-group    {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        > * {
+            margin: 10px;
+        }
+    }
+
+    > * {
+        margin: 20px;
+        height: 20px;
+    }
+
+}
+
+label.label {
+    font-family: var(--body-font);
+}
