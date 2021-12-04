@@ -1,0 +1,12 @@
+button.log-btn  {
+    background-color: transparent;
+    border: none;
+    margin-top: 10px;
+    font-family: var(--body-font);
+    font-size: 20px;
+    color: var(--tan);
+}
+
+button.log-btn:hover {
+    color: var(--red);
+}

@@ -17,7 +17,7 @@ export default function Create() {
                 </div>
                 <div className="form-group">
                     <label htmlFor="sighting-location" className='label'>Location of sighting </label>
-                    <input className="form-input" type="text" id="sighting-location" name="sighting-name" required />
+                    <input className="form-input" id="sighting-location" name="sighting-name" required />
                 </div>
                 <div className="form-group">
                     <label htmlFor="sighting-time" className='label'>Time Seen </label>
