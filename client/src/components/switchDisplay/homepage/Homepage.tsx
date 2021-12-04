@@ -4,17 +4,18 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 // interface Iprops {
-//     postData?:string;
-//     setPostData:(a:string) => {};
+//     category?:string;
+//     setCategory?:(a:string) => {};
 // }
 
-export default function Homepage() {
+export default function Homepage(props:any) {
+    const {category, setCategory} = props;
 
     let navigate = useNavigate()
 
-    function getBlog(category:string)  {
-
-        navigate(`/blog/${category}`, {replace:true})
+    function getBlog(cat:string)  {
+        setCategory(cat);
+        navigate(`/blog/${cat}`, {replace:true})
     }
 
     return  (

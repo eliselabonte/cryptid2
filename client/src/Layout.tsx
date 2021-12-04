@@ -5,7 +5,7 @@ import Main from './components/main/Main';
 import './layout.scss';
 // import Auth0ProviderWithHistory from './auth0Provider';
 
-function Layout(props: any) {
+export default function Layout(props: any) {
   const { search, setSearch } = props;
 
   const [navOpen, setNavOpen] = useState<boolean>(false);
@@ -28,11 +28,9 @@ function Layout(props: any) {
       <Main
         home={home}
         setHome={setHome} 
-        // singlePostID={singlePostID}
-        // setSinglePostID={setSinglePostID}
+        // category = {category}
+        // setCategory = {setCategory}
         />
     </Fragment>
   );
 }
-
-export default Layout;
