@@ -22,7 +22,7 @@ export const useSearch = () =>  {
             console.log('fetching searchResults from API...', search)
             // query the tags table
             axios.get(`/api/tags/${search}`)
-        // TODO: add query parameters
+        // SPRINKLES: add query parameters
             .then((res) =>   {
                 const foundResults = res.data
                 setResults(foundResults)
@@ -35,6 +35,8 @@ export const useSearch = () =>  {
 
 export const useBlogData = () => {
 
+    // TODO: there is no need for this to be a custom hook. 
+    //       currently it is only returning the below useState function
     const [category, setCategory] = useState<string>('cryptid')
     const [posts, setPosts] = useState<[{}]>([{}])
 

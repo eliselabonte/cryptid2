@@ -3,6 +3,8 @@ import './post.scss';
 
 export default function Post(props:any)  {
 
+
+    // TODO: Route for single post at '/posts/:id'
     return  (
         <div className='post'>
             <section className='report-info'>

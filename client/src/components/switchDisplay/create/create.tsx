@@ -2,6 +2,8 @@ import './create.scss'
 
 export default function Create() {
     return (
+
+        // TODO: form function
         
         <div className='create-div'>
             <h3 className='report-div-title'>Report a sighting</h3>

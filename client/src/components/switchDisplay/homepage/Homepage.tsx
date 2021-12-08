@@ -21,7 +21,6 @@ export default function Homepage(props:any) {
     return  (
         <div className='category-container'>
             <div className='category-card'>
-                {/* each line of text will eventually be replaced with a react variable, so only one of these will be necessary to use as a template */}
                 <h3 className='category-name'>Cryptid</h3>
                 <h4 className='pronounce'>cryp·​tid | \ ˈkrip-təd</h4>
                 <p className='define'>An animal (such as Sasquatch or the Loch Ness Monster) of which its existence has been claimed, but not yet proven</p>
@@ -60,3 +59,5 @@ export default function Homepage(props:any) {
         </div>
     )
 }
+
+// TODO: below categories should maybe be all posts by order of date?

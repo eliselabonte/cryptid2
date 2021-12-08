@@ -3,7 +3,6 @@ import { useState } from "react";
 import Layout from "./Layout";
 import Homepage from "./components/switchDisplay/homepage/Homepage";
 import Blog from "./components/switchDisplay/blog/blog";
-import Creatures from "./components/switchDisplay/creature/Creatures";
 import Dashboard from "./components/switchDisplay/dashboard/Dashboard";
 import Profile from "./components/switchDisplay/profile/Profile";
 import SearchLanding from "./components/switchDisplay/searchLanding/SearchLanding";
@@ -24,7 +23,6 @@ export default function AllRoutes(children: any) {
                     <Route path="/" element={<Layout search={search} setSearch={setSearch} />}>
                         <Route path='/' element={<Homepage setCategory={setCategory}/>} />
                         <Route path='/blog/:category' element={<Blog category={category}/>} />
-                        <Route path='/creatures/:id' element={<Creatures />} />
                         <Route path='/dashboard' element={<Dashboard />} />
                         <Route path='/profile/:id' element={<Profile />} />
                         <Route path='/create' element={<Create />} />

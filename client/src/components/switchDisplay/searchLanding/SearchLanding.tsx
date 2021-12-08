@@ -18,7 +18,8 @@ export default function SearchLanding(props:Iprops) {
             <div className='search-result' key={result.tag_name}>
                 <h3 className='report-title'>Tag title: {result.tag_name}</h3>
                 {safePosts.map((post:any) => {
-                    // TODO: return username on post.user_id
+                    // TODO: return username on post.user_id. Seems to be issue with data included in return
+                    //       add route to return a given username for the id (maybe not best practice?)
                     return (
                         <div>
                             <h4 
