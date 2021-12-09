@@ -31,7 +31,7 @@ export default function Dashboard(props:any) {
 
         return  (
             <div className='dashboard'>
-                <h2 className='dashboard-title'>Dashboard</h2>
+                {/* <h2 className='dashboard-title'>Dashboard</h2>
                 <h3 className='dashboard-description'>All Posts</h3>
                 {Posts.map((report:any) =>{
                     // const safeTags = report.tags || []
@@ -49,7 +49,7 @@ export default function Dashboard(props:any) {
                             </ul>
                         </div>
                     )
-                })}
+                })} */}
             </div>
         )
 

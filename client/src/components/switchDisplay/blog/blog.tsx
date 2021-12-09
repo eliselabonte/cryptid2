@@ -8,11 +8,54 @@ export default function Blog(props:any) {
     //       return all blog posts for a given category
     //       address is '/blog/:category'
 
-    const {category} = props;
-    let cat_id:number
-    let thesePosts = [{}]
+    const {category, setPostId, blogPosts} = props;
+    // console.log('heck')
+    console.log(blogPosts)
+    // axios.get(`/api/categories/${category}`)
+    //     .then((res) => {
+    //         const thesePosts = res.data;
+    //         blogPosts.push({thesePosts})
+    //         console.log(blogPosts)
+    //     })
+    
+    
 
-    // Categories.forEach((cat) => {
+    return  (
+        // this is for all posts or a specific category
+        <div className='blog'>
+            <h2 className='blog-title'>{category} reports</h2>
+            {blogPosts.map((post:any) => {
+                return(
+                    <div 
+                    className='report' 
+                    key={post.id}
+                    // onClick={setPostId(post.id)}
+                    >
+                        <section className='report-info'>
+                            <h3 className='report-title'>{post.description}</h3>
+                            <h4 className='report-name-date'>by {post.user} on Date</h4>
+                        </section>
+                        <p className='report'>{post.report}</p>
+                        {/* maybe don't need to render the tags list? */}
+                        <div className='report-bottom'>
+                            <ul className='tags-list'>
+                                <li>#{post.tag}</li>
+                            </ul>
+                            <FaStar 
+                            className='star-icon'
+                            // onClick if !favorited by user, add this post to user's favorites
+                            //          if favorited by user, remove this post from user's favorites
+                            />
+                        </div>
+                    </div>
+                )
+            })}
+        </div>
+    )
+}
+
+
+// Categories.forEach((cat) => {
     //     if (cat.category_name === category) {
     //         cat_id = cat.id
     //     }
@@ -48,38 +91,6 @@ export default function Blog(props:any) {
     //             report:report, 
     //             location:location, 
     //             tag:tag }
-    //         thesePosts.push(singlePost) 
+    //         blogPosts.push(singlePost) 
     //     }
     // })
-    thesePosts.shift()
-    console.log(thesePosts)
-
-    return  (
-        // this is for all posts or a specific category
-        <div className='blog'>
-            <h2 className='blog-title'>{category} reports</h2>
-            {thesePosts.map((post:any) => {
-                return(
-                    <div className='report' key={post.id}>
-                        <section className='report-info'>
-                            <h3 className='report-title'>{post.description}</h3>
-                            <h4 className='report-name-date'>by {post.user} on Date</h4>
-                        </section>
-                        <p className='report'>{post.report}</p>
-                        {/* maybe don't need to render the tags list? */}
-                        <div className='report-bottom'>
-                            <ul className='tags-list'>
-                                <li>#{post.tag}</li>
-                            </ul>
-                            <FaStar 
-                            className='star-icon'
-                            // onClick if !favorited by user, add this post to user's favorites
-                            //          if favorited by user, remove this post from user's favorites
-                            />
-                        </div>
-                    </div>
-                )
-            })}
-        </div>
-    )
-}

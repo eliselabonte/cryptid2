@@ -6,15 +6,12 @@ import './layout.scss';
 // import Auth0ProviderWithHistory from './auth0Provider';
 
 export default function Layout(props: any) {
-  const { search, setSearch } = props;
+  const { search, setSearch, postId, setPostId, postData, category, blogPosts } = props;
 
   const [navOpen, setNavOpen] = useState<boolean>(false);
 
   const [home, setHome] = useState<boolean>(true);
-
-  // const [singlePostID, setSinglePostID] = useState<number>()
-
-  // how to set this variable to false any time we are not on home page?
+  // TODO: set this ^ variable to false any time we are not on home page?
 
   return (
     <Fragment>
@@ -28,6 +25,11 @@ export default function Layout(props: any) {
       <Main
         home={home}
         setHome={setHome} 
+        postData={postData}
+        postId={postId}
+        setPostId={setPostId}
+        category={category}
+        blogPosts={blogPosts}
         // category = {category}
         // setCategory = {setCategory}
         />

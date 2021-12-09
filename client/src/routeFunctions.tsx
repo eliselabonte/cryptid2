@@ -17,44 +17,55 @@ export const useSearch = () =>  {
     const [results, setResults] = useState([{}]);
 
     useEffect( () => {
-        // if an item is searched...
         if (search!==undefined)   {
-            console.log('fetching searchResults from API...', search)
-            // query the tags table
+            // console.log('fetching searchResults from API...', search)
             axios.get(`/api/tags/${search}`)
-        // SPRINKLES: add query parameters
             .then((res) =>   {
                 const foundResults = res.data
                 setResults(foundResults)
             });
         }
+        // SPRINKLES: add query parameters
     }, [search] );
 
     return {search, setSearch, results};
 };
 
 export const useBlogData = () => {
+    const [category, setCategory] = useState<string>('cryptid');
+    const [blogPosts, setBlogPosts] = useState<[{}]>([{}])
 
-    // TODO: there is no need for this to be a custom hook. 
-    //       currently it is only returning the below useState function
-    const [category, setCategory] = useState<string>('cryptid')
-    const [posts, setPosts] = useState<[{}]>([{}])
+    useEffect( () => {
+        if (category!==undefined)   {
+            console.log('fetching post from API...', category)
+            axios.get(`/api/categories/${category}`)
+            .then((res) =>   {
+                console.log('route functions')
+                const blog = res.data
+                setBlogPosts(blog)
+            });
+        }
+        // SPRINKLES: add query parameters
+    }, [category] );
 
-    // useEffect(() => {
-    //     if (category!==undefined)   {
-    //         console.log(`fetching ${category} from API...`)
+    return {category, setCategory, blogPosts};
+}
 
-    //         axios.get(`/api/tags/`)
-    //         .then((res) =>   {
-    //             const foundResults = res.data
-    //             console.log(foundResults)
-    //             setPosts(foundResults)
-    //         })
-    //         .catch((err) =>    {
-    //             console.error(err)
-    //         }) ;
-    //     }
-    //     }, [category])
+export const useSinglePost = () => {
+    const [postId, setPostId] = useState<number>(1);
+    const [postData, setPostData] = useState<{}>({});
 
-    return {category, setCategory};
+    useEffect( () => {
+        if (postId!==undefined)   {
+            console.log('fetching post from API...', postId)
+            axios.get(`/api/posts/${postId}`)
+            .then((res) =>   {
+                const post = res.data
+                setPostData(post)
+            });
+        }
+        // SPRINKLES: add query parameters
+    }, [postId] );
+
+    return {postId, setPostId, postData}
 }
