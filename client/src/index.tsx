@@ -1,6 +1,5 @@
 import { render } from "react-dom";
 import AllRoutes from "./App";
-// import App from "./App";
 import { Auth0Handler } from "./auth0Provider";
 import Layout from "./Layout";
 

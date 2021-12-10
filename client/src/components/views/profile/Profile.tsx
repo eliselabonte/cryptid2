@@ -3,6 +3,9 @@
 import ProfilePic from '../../../images/nosferatu.png';
 import './profile.scss';
 
+
+// TODO: profile contains saved info about user (probably stored in User table)
+//       post section is all posts by this user in order of date
 function Profile() {
     return (
         <div className='Profile'>

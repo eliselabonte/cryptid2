@@ -1,4 +1,4 @@
-const { Model, DataTypes, NUMBER } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection');
 
@@ -30,14 +30,15 @@ User.init(
       validate: {
         len: [8],
       },
-    },
-    favorite_post_id:  {
-      type: DataTypes.INTEGER,
-        references: {
-            model: 'userPosts',
-            key: 'id'
-        }
     }
+    // TODO: favorite post not yet functioning
+    // favorite_post_id:  {
+    //   type: DataTypes.INTEGER,
+    //     references: {
+    //         model: 'userPosts',
+    //         key: 'id'
+    //     }
+    // }
   },
   {
     sequelize,

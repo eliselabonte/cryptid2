@@ -12,7 +12,7 @@ const seedPosts = async () => {
       location: "Dallas",
       timeSeen: "2021-01-12 03:45",
       timeFiled: "2021-01-15 15:42:57",
-      category_id: 2,
+      category_id: 1,
       user_id: randomCalc(users),
       tag_id: randomCalc(tags)
     },
@@ -22,7 +22,7 @@ const seedPosts = async () => {
       location: "Alaska",
       timeSeen: null,
       timeFiled: "2020-11-05 12:16:32",
-      category_id: 3,
+      category_id: 1,
       user_id: randomCalc(users),
       tag_id: randomCalc(tags)
     },
@@ -42,7 +42,7 @@ const seedPosts = async () => {
       location: "Glasgow",
       timeSeen: "2021-08-12 12:30",
       timeFiled: "2021-08-17 15:42:57",
-      category_id: 1,
+      category_id: 4,
       user_id: randomCalc(users),
       tag_id: randomCalc(tags)
     },
@@ -53,6 +53,25 @@ const seedPosts = async () => {
       timeSeen: null,
       timeFiled: "2021-01-15 15:42:57",
       category_id: 2,
+      user_id: randomCalc(users),
+      tag_id: randomCalc(tags)
+    },
+    {
+      report: "I know this sounds crazy, but I was abducted. Everything is different now. I can't focus on anything and I keep seeing this owl following me everywhere. It all started a few months ago after I was experiencing this very extreme insomnia. The owl first appeared to me and then I blacked out. When I woke up, I was on a lab table and there were these two figures standing above me. I couldn't make sense of the noise they were making but I remember their big, glassy eyes and skinny heads.",
+      description:"yellow skin, small head, big black eyes",
+      location: "Mystic, Connecticut",
+      timeSeen: "2021-08-15 00:48:29",
+      timeFiled: "2021-11-30 13:22:00",
+      category_id: 3,
+      user_id: randomCalc(users),
+      tag_id: randomCalc(tags)
+    },
+    {
+      report: "My librarian is definitely with the Men in Black. I don't know if this counts as a cryptid or as an alien, but she seems more of the Will Smith MIB persuasion than the other kind.",
+      location: "Bath, Maine",
+      timeSeen: null,
+      timeFiled: "2021-12-07 10:25:42",
+      category_id: 3,
       user_id: randomCalc(users),
       tag_id: randomCalc(tags)
     },

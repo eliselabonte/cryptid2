@@ -15,12 +15,13 @@ export default function Searchbar(props:Iprops) {
     
     const submit = (event:any) =>  {
         event.preventDefault();
-        setSearch(inputValue);
-        console.log(search)
-        
-        navigate(`/search/${inputValue}`, { replace: true });
-
-        // TODO: account for spaces in input variable
+        if(inputValue){
+            setSearch(inputValue);
+            
+            navigate(`/search/${inputValue}`, { replace: true });
+    
+            // TODO: account for spaces in input variable
+        }
     }
 
     const change = (event:any) => {

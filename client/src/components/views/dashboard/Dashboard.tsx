@@ -2,35 +2,36 @@ import './dashboard.scss';
 import axios from 'axios';
 import {useEffect} from 'react';
 // import { getAllPosts } from '../../../routes';
-import { Posts } from '../../devData/posts';
-import { Tags } from '../../devData/tags';
-import { Users } from '../../devData/user';
 
+// TODO: THIS PAGE GOES WITH FAVORITE FUNCTION.
 export default function Dashboard(props:any) {
     // const {results, setResults} = props;
     // const safePosts = results || [];
     let username:string;
     let tagName:string;
 
-    function thisUser(id:number) {
-        Users.forEach((user) => {
-            if(user.id === id)  {
-                username = user.username
-            }
-        })
-    }
+    // TODO: Get all posts that this user has saved/favorited
+    //       should be ~~ '/dashboard/:id' where id = user id (need to write backend route)
 
-    function theseTags(tagId:number) {
-        Tags.forEach((tag) => {
-            if(tag.id === tagId) {
-                tagName = tag.tag_name
-            }
-        })
-    }
+    // function thisUser(id:number) {
+    //     Users.forEach((user) => {
+    //         if(user.id === id)  {
+    //             username = user.username
+    //         }
+    //     })
+    // }
+
+    // function theseTags(tagId:number) {
+    //     Tags.forEach((tag) => {
+    //         if(tag.id === tagId) {
+    //             tagName = tag.tag_name
+    //         }
+    //     })
+    // }
 
         return  (
             <div className='dashboard'>
-                <h2 className='dashboard-title'>Dashboard</h2>
+                {/* <h2 className='dashboard-title'>Dashboard</h2>
                 <h3 className='dashboard-description'>All Posts</h3>
                 {Posts.map((report:any) =>{
                     // const safeTags = report.tags || []
@@ -48,7 +49,7 @@ export default function Dashboard(props:any) {
                             </ul>
                         </div>
                     )
-                })}
+                })} */}
             </div>
         )
 

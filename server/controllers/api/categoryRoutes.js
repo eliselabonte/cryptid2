@@ -17,12 +17,16 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/:id', async (req, res) => {
-  // find a single category by its `id`
+router.get('/:name', async (req, res) => {
+  // find a single category by its `name`
+    console.log('GETTING POSTS')
     try {
-        const category = await Category.findByPk(req.params.id, {
-        include:  [{model: Post}]
-        })
+        const category = await Category.findAll(
+            {
+            where: {name:req.params.name},
+            include:  [{model: Post}]
+            })
+            console.log(category)
         res.json(category)
     }
     catch{
