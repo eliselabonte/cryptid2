@@ -9,8 +9,7 @@ export default function Blog(props:any) {
     //       address is '/blog/:category'
 
     const {category, setPostId, blogPosts} = props;
-    // console.log('heck')
-    console.log(blogPosts)
+    // console.log(blogPosts)
     // axios.get(`/api/categories/${category}`)
     //     .then((res) => {
     //         const thesePosts = res.data;

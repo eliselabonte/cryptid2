@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Layout";
-import Homepage from "./components/switchDisplay/homepage/Homepage";
-import Blog from "./components/switchDisplay/blog/blog";
-import Dashboard from "./components/switchDisplay/dashboard/Dashboard";
-import Profile from "./components/switchDisplay/profile/Profile";
-import SearchLanding from "./components/switchDisplay/searchLanding/SearchLanding";
+import Homepage from "./components/views/homepage/Homepage";
+import Blog from "./components/views/blog/blog";
+import Dashboard from "./components/views/dashboard/Dashboard";
+import Profile from "./components/views/profile/Profile";
+import SearchLanding from "./components/views/searchLanding/SearchLanding";
 import {useSearch, useBlogData, useSinglePost} from './routeFunctions';
-import Post from "./components/switchDisplay/singlePost/post";
-import Create from "./components/switchDisplay/create/create";
+import Post from "./components/views/singlePost/post";
+import Create from "./components/views/create/create";
 
 export default function AllRoutes(children: any) {
     const { search, setSearch, results } = useSearch();

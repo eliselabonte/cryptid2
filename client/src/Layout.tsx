@@ -3,7 +3,6 @@ import Intro from './components/intro/Intro';
 import Header from './components/header/Header';
 import Main from './components/main/Main';
 import './layout.scss';
-// import Auth0ProviderWithHistory from './auth0Provider';
 
 export default function Layout(props: any) {
   const { search, setSearch, postId, setPostId, postData, category, blogPosts } = props;
@@ -30,8 +29,6 @@ export default function Layout(props: any) {
         setPostId={setPostId}
         category={category}
         blogPosts={blogPosts}
-        // category = {category}
-        // setCategory = {setCategory}
         />
     </Fragment>
   );

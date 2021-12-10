@@ -12,6 +12,8 @@ export interface Iresults {
     results:[Iresult];
 }
 
+// TODO: refactor each of these into their own files
+
 export const useSearch = () =>  {
     const [search, setSearch] = useState<string>('');
     const [results, setResults] = useState([{}]);
