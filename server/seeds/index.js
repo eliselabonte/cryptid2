@@ -3,6 +3,9 @@ const seedCategories = require('./category-seeds');
 const seedPosts = require('./post-seeds');
 const seedTags = require('./tag-seeds');
 const seedPostTags = require('./post-tag-seeds');
+// const seedUserPosts = require('./user-post-seeds');
+const seedFavPosts = require('./fav-post-seeds');
+const seedWrittenPosts = require('./written-post-seeds');
 
 const sequelize = require('../config/connection');
 
@@ -26,6 +29,12 @@ const seedDatabase = async () => {
 
   await seedPostTags();
   console.log('\n----- POST TAGS SEEDED -----\n');
+
+  // await seedWrittenPosts();
+  // console.log('\n----- WRITTEN POSTS SEEDED -----\n');
+
+  // await seedFavPosts();
+  // console.log('\n----- FAVORITE POSTS SEEDED -----\n');
 
   process.exit(0);
 };

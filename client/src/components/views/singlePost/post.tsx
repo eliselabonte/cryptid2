@@ -1,16 +1,12 @@
 import axios from 'axios';
 import { useEffect } from 'react';
 import './post.scss';
+import { FaStar } from 'react-icons/fa';
 
 export default function Post(props:any)  {
 
-    const { postId, setPostId, postData } = props;
+    const { postData } = props;
 
-    // TODO: Route for single post at '/posts/:id'
-    //       define prop types
-    console.log(postData)
-    console.log(postData.tags)
-    // console.log(postData.tags[0].tag_name)
     function TagList() {
         if (postData.tags) {
             for (let i = 0; i < 5; i++) {
@@ -19,8 +15,6 @@ export default function Post(props:any)  {
             }
         }
     }    
-
-    // TODO: if more than one post, map posts
 
     return  (
         <div className='post'>
@@ -34,5 +28,10 @@ export default function Post(props:any)  {
                     console.log(tag.name)
                 })} */}
             </ul>
+            <FaStar 
+            className='star-icon'
+            // onClick if !favorited by user, add this post to user's favorites
+            //          if favorited by user, remove this post from user's favorites
+            />
         </div>
     )}
