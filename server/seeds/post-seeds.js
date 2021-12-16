@@ -13,7 +13,7 @@ const seedPosts = async () => {
       timeSeen: "2021-01-12 03:45",
       timeFiled: "2021-01-15 15:42:57",
       category_id: 1,
-      user_id: randomCalc(users),
+      // user_id: randomCalc(users),
       tag_id: randomCalc(tags)
     },
     {
@@ -23,7 +23,7 @@ const seedPosts = async () => {
       timeSeen: null,
       timeFiled: "2020-11-05 12:16:32",
       category_id: 1,
-      user_id: randomCalc(users),
+      // user_id: randomCalc(users),
       tag_id: randomCalc(tags)
     },
     {
@@ -33,7 +33,7 @@ const seedPosts = async () => {
       timeSeen: "2019-04-23 16:37",
       timeFiled: "2019-04-23 06:35:03",
       category_id: 1,
-      user_id: randomCalc(users),
+      // user_id: randomCalc(users),
       tag_id: randomCalc(tags)
     },
     {
@@ -43,7 +43,7 @@ const seedPosts = async () => {
       timeSeen: "2021-08-12 12:30",
       timeFiled: "2021-08-17 15:42:57",
       category_id: 4,
-      user_id: randomCalc(users),
+      // user_id: randomCalc(users),
       tag_id: randomCalc(tags)
     },
     {
@@ -53,7 +53,7 @@ const seedPosts = async () => {
       timeSeen: null,
       timeFiled: "2021-01-15 15:42:57",
       category_id: 2,
-      user_id: randomCalc(users),
+      // user_id: randomCalc(users),
       tag_id: randomCalc(tags)
     },
     {
@@ -63,16 +63,17 @@ const seedPosts = async () => {
       timeSeen: "2021-08-15 00:48:29",
       timeFiled: "2021-11-30 13:22:00",
       category_id: 3,
-      user_id: randomCalc(users),
+      // user_id: randomCalc(users),
       tag_id: randomCalc(tags)
     },
     {
       report: "My librarian is definitely with the Men in Black. I don't know if this counts as a cryptid or as an alien, but she seems more of the Will Smith MIB persuasion than the other kind.",
+      description:"small frame, BIG glasses",
       location: "Bath, Maine",
       timeSeen: null,
       timeFiled: "2021-12-07 10:25:42",
       category_id: 3,
-      user_id: randomCalc(users),
+      // user_id: randomCalc(users),
       tag_id: randomCalc(tags)
     },
     {
@@ -82,7 +83,7 @@ const seedPosts = async () => {
       timeSeen: "2021-01-12 03:45",
       timeFiled: "2021-01-15 15:42:57",
       category_id: 1,
-      user_id: randomCalc(users),
+      // user_id: randomCalc(users),
       tag_id: randomCalc(tags)
     },
     {
@@ -92,7 +93,7 @@ const seedPosts = async () => {
       timeSeen: null,
       timeFiled: "2021-09-06 19:20",
       category_id: 4,
-      user_id: randomCalc(users),
+      // user_id: randomCalc(users),
       tag_id: randomCalc(tags)
     },
   ];

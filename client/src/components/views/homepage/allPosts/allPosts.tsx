@@ -6,7 +6,8 @@ import Post from '../../singlePost/post';
 
 // find all posts (by date) and render each as a post
 export default function AllPosts() {
-    const [allPosts, setAllPosts] = useState([])
+    const [allPosts, setAllPosts] = useState([]);
+
     useEffect(() => {
         if (allPosts.length === 0)  {
             axios.get('/api/posts')
@@ -20,7 +21,6 @@ export default function AllPosts() {
         }
     }, [allPosts])
     
-    console.log(allPosts[0])
     const posts = allPosts.map((post, i) =>  {
         return(
             <Post postData={post} key={i}/>

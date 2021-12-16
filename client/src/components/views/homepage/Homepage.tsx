@@ -16,6 +16,7 @@ export default function Homepage(props:any) {
 
     function getBlog(cat:string)  {
         setCategory(cat);
+        console.log('category selected:', cat)
         navigate(`/blog/${cat}`, {replace:true})
     }
 

@@ -1,38 +1,39 @@
-import axios from 'axios';
-import { useEffect } from 'react';
 import './post.scss';
+import { useNavigate } from 'react-router-dom';
+import { FaStar } from 'react-icons/fa';
+// TODO: use star icon as button to select favorites
 
 export default function Post(props:any)  {
+    const { postData, setPostId } = props;
+    const navigate = useNavigate()
+    let tagList
 
-    const { postId, setPostId, postData } = props;
+    if (postData.tags) {
+        tagList = postData.tags.map((tag:any, i:any) => {
+            return(
+                <li key={i}>#{tag.tag_name}</li>
+            )
+        })
+    }
 
-    // TODO: Route for single post at '/posts/:id'
-    //       define prop types
-    console.log(postData)
-    console.log(postData.tags)
-    // console.log(postData.tags[0].tag_name)
-    function TagList() {
-        if (postData.tags) {
-            for (let i = 0; i < 5; i++) {
-                return(
-                <li>{postData.tags[i].tag_name}</li>)
-            }
-        }
-    }    
-
-    // TODO: if more than one post, map posts
+    function link(id:number) {
+        navigate (`/post/${id}`, {replace:true})
+        // setPostId(id)
+    }
 
     return  (
-        <div className='post'>
+        <div className='post'
+            onClick={() => {link(postData.id)}}>
             <section className='report-info'>
                 <h3 className='report-description'>{postData.description}</h3>
                 <h4 className='report-name-date'>by {postData.user_id} on {postData.timeSeen}</h4>
             </section>
             <p className='report'>{postData.report}</p>
             <ul className='tags-list'>
-                {/* {postData.tags.forEach((tag:any) => {
-                    console.log(tag.name)
-                })} */}
+                {tagList}
             </ul>
+            {/* <FaStar 
+            className='star-icon'
+            /> */}
         </div>
     )}

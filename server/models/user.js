@@ -31,14 +31,6 @@ User.init(
         len: [8],
       },
     }
-    // TODO: favorite post not yet functioning
-    // favorite_post_id:  {
-    //   type: DataTypes.INTEGER,
-    //     references: {
-    //         model: 'userPosts',
-    //         key: 'id'
-    //     }
-    // }
   },
   {
     sequelize,
