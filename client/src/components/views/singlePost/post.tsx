@@ -1,37 +1,39 @@
-import axios from 'axios';
-import { useEffect } from 'react';
 import './post.scss';
+import { useNavigate } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
+// TODO: use star icon as button to select favorites
 
 export default function Post(props:any)  {
+    const { postData, setPostId } = props;
+    const navigate = useNavigate()
+    let tagList
 
-    const { postData } = props;
+    if (postData.tags) {
+        tagList = postData.tags.map((tag:any, i:any) => {
+            return(
+                <li key={i}>#{tag.tag_name}</li>
+            )
+        })
+    }
 
-    function TagList() {
-        if (postData.tags) {
-            for (let i = 0; i < 5; i++) {
-                return(
-                <li>{postData.tags[i].tag_name}</li>)
-            }
-        }
-    }    
+    function link(id:number) {
+        navigate (`/post/${id}`, {replace:true})
+        // setPostId(id)
+    }
 
     return  (
-        <div className='post'>
+        <div className='post'
+            onClick={() => {link(postData.id)}}>
             <section className='report-info'>
                 <h3 className='report-description'>{postData.description}</h3>
                 <h4 className='report-name-date'>by {postData.user_id} on {postData.timeSeen}</h4>
             </section>
             <p className='report'>{postData.report}</p>
             <ul className='tags-list'>
-                {/* {postData.tags.forEach((tag:any) => {
-                    console.log(tag.name)
-                })} */}
+                {tagList}
             </ul>
-            <FaStar 
+            {/* <FaStar 
             className='star-icon'
-            // onClick if !favorited by user, add this post to user's favorites
-            //          if favorited by user, remove this post from user's favorites
-            />
+            /> */}
         </div>
     )}

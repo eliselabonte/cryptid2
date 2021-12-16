@@ -1,9 +1,13 @@
 div.post   {
-    margin: 50px;
-    margin-top: 100px;
+    margin: 20px;
+    // margin-top: 100px;
     background-color: var(--post);
     border-radius: 20px;
     padding: 20px;
+}
+
+div.post:hover  {
+    background-color: rgba(255, 255, 255, 0.835);
 }
 
 h2.post-description, h3.post-report  {

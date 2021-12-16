@@ -14,7 +14,7 @@ import Create from "./components/views/create/create";
 export default function AllRoutes(children: any) {
     const { search, setSearch, results } = useSearch();
     const { category, setCategory } = useBlogData();
-    const { postData } = useSinglePost();
+    const { postData, setPostId } = useSinglePost();
 
     return (
         <BrowserRouter>
@@ -26,7 +26,7 @@ export default function AllRoutes(children: any) {
                         <Route path='/profile/:id' element={<Profile />} />
                         <Route path='/create' element={<Create />} />
                         <Route path='/search/:searchItems'element={<SearchLanding results={results} />} />
-                        <Route path='/post/:id' element={<Post postData={postData}/>} />
+                        <Route path='/post/:id' element={<Post postData={postData} setPostId={setPostId}/>} />
                     </Route>
                 </Routes>
         </BrowserRouter>

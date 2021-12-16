@@ -20,16 +20,13 @@ export default function Blog(props:any) {
 
     if (categoryPosts.length){
         const postArray = categoryPosts[0].posts;
-        console.log(postArray)
         
         const postMap = postArray.map((post:[], i:any) => {
-            console.log(post)
             return(
                 <Post postData={post} key={i}/>
                 )
             })
     
-
         return  (
             // this is for all posts or a specific category
             <div className='blog'>

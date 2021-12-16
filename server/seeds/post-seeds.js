@@ -68,6 +68,7 @@ const seedPosts = async () => {
     },
     {
       report: "My librarian is definitely with the Men in Black. I don't know if this counts as a cryptid or as an alien, but she seems more of the Will Smith MIB persuasion than the other kind.",
+      description:"small frame, BIG glasses",
       location: "Bath, Maine",
       timeSeen: null,
       timeFiled: "2021-12-07 10:25:42",
