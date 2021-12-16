@@ -1,29 +1,54 @@
-import './create.scss'
+import './create.scss';
+import axios from 'axios';
+import dayjs from 'dayjs';
 
 export default function Create() {
-    return (
 
-        // TODO: form function
-        
+    function submitForm(e:any) {
+        e.preventDefault()
+
+        const report = $('#report');
+        const description = $('#description');
+        const location = $('#location');
+        const timeSeen = $('#time');
+        const category_id = $('#category_id');
+        const user_id = 2;
+
+        console.log(report)
+            axios.post(`/api/posts/`, {report, 
+            description, 
+            location, 
+            timeSeen, 
+            category_id, 
+            user_id
+            })
+            .then((res) =>   {
+                const confirm = res.data;
+                console.log(confirm)
+                window.alert('new post created')
+            });
+    }
+
+    return (
         <div className='create-div'>
             <h3 className='report-div-title'>Report a sighting</h3>
             <p className='search-info'>Be sure to use our search feature to see if others have had a similar experience</p>
-            <form className="form new-sighting-form" id="sighting">
+            <form className="form new-sighting-form" id="sighting" onSubmit={submitForm}>
                 <div className="form-group">
-                    <label htmlFor="sighting-report" className='label'>Report </label>
-                    <textarea className="form-input" id="sighting-report" name="sighting-report" required></textarea>
+                    <label htmlFor="report" className='label'>Report </label>
+                    <textarea className="form-input" id="report" name="report" required></textarea>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="sighting-description" className='label'>Description of creature </label>
-                    <textarea className="form-input" id="sighting-description" name="sighting-description" required></textarea>
+                    <label htmlFor="description" className='label'>Description of creature </label>
+                    <textarea className="form-input" id="description" name="description" required></textarea>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="sighting-location" className='label'>Location of sighting </label>
-                    <input className="form-input" id="sighting-location" name="sighting-name" required />
+                    <label htmlFor="location" className='label'>Location</label>
+                    <input className="form-input" id="location" name="name" required />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="sighting-time" className='label'>Time Seen </label>
-                    <textarea className="p-3 form-input" id="sighting-time" name="sighting-time" placeholder="yyyy/mm/dd h:m"required></textarea>
+                    <label htmlFor="time" className='label'>Time Seen </label>
+                    <textarea className="p-3 form-input" id="time" name="time" placeholder="yyyy/mm/dd h:m"required></textarea>
                 </div>
                 <div>
                     <label htmlFor="category" className='label'>Choose a category to report this sighting under: </label>

@@ -8,7 +8,7 @@ export default function Blog(props:any) {
     //       return all blog posts for a given category
     //       address is '/blog/:category'
     const {category} = props;
-    const [categoryPosts, setCategoryPosts] = useState([{}])
+    const [categoryPosts, setCategoryPosts] = useState<any[]>([])
 
     useEffect(() => {
         axios.get(`/api/categories/${category}`)
@@ -16,21 +16,35 @@ export default function Blog(props:any) {
                 const thesePosts = res.data;
                 setCategoryPosts(thesePosts)
             })
-    }, [categoryPosts])
-    
-    const posts = categoryPosts.map((post, i) => {
-        return(
-            <Post postData={post} key={i}/>
-        )
-    })
+    }, [category])
 
-    return  (
-        // this is for all posts or a specific category
-        <div className='blog'>
-            <h2 className='blog-title'>{category} reports</h2>
-            {posts}
-        </div>
-    )
+    if (categoryPosts.length){
+        const postArray = categoryPosts[0].posts;
+        console.log(postArray)
+        
+        const postMap = postArray.map((post:[], i:any) => {
+            console.log(post)
+            return(
+                <Post postData={post} key={i}/>
+                )
+            })
+    
+
+        return  (
+            // this is for all posts or a specific category
+            <div className='blog'>
+                <h2 className='blog-title'>{category} reports</h2>
+                {postMap}
+            </div>
+        )
+    }
+    else {
+        return(
+            <div className='blog'>
+                <h2 className='blog-title'>No {category} reports yet.</h2>
+            </div>
+        )
+    }
 }
 
 

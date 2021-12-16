@@ -10,26 +10,17 @@ export const useBlogData = () => {
 
             console.log('fetching blog from API...', category)
 
-            // this axios function not getting hit
-            axios.get(`/api/categories/${category}`, {
-                proxy: {
-                    host: "http://localhost",
-                    port: 3001
-                }
-            })
+            // TODO: this seems to be a proxy issue
+            axios.get(`/api/categories/${category}`)
             .then((res) =>   {
                 if (res){
                     const blog = res.data
                     setBlogPosts(blog)
-                    console.log('blog posts', blog)
-                }
-                else {
-                    console.log('nah dude')
                 }
             });
         }
 
     }, [category] );
 
-    return {category, setCategory, blogPosts};
+    return {category, setCategory};
 }
