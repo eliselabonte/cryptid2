@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 export default function Main(props:any) {
     const {home} = props;
+
+    
     
     return (
         <main className='main'>

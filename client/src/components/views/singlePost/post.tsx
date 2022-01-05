@@ -1,11 +1,12 @@
 import './post.scss';
 import { useNavigate } from 'react-router-dom';
+import Moment from 'react-moment';
 import { FaStar } from 'react-icons/fa';
 // TODO: use star icon as button to select favorites
 
 export default function Post(props:any)  {
     const { postData, setPostId } = props;
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     let tagList
 
     if (postData.tags) {
@@ -18,7 +19,6 @@ export default function Post(props:any)  {
 
     function link(id:number) {
         navigate (`/post/${id}`, {replace:true})
-        // setPostId(id)
     }
 
     return  (
@@ -26,9 +26,13 @@ export default function Post(props:any)  {
             onClick={() => {link(postData.id)}}>
             <section className='report-info'>
                 <h3 className='report-description'>{postData.description}</h3>
-                <h4 className='report-name-date'>by {postData.user_id} on {postData.timeSeen}</h4>
+                {/* TODO: why is this breaking @username? */}
+                {/* <h4 className='report-name-date'>by {postData.user.username ? postData.user.username : 'no one'} on <Moment format='MMMM Do YYYY, h:mm a'>{postData.timeFiled}</Moment></h4> */}
             </section>
             <p className='report'>{postData.report}</p>
+            <p>time seen: {postData.timeSeen ? 
+            <Moment format='MMMM Do YYYY, h:mm a'>{postData.timeSeen}</Moment>
+            : 'not recorded'}</p>
             <ul className='tags-list'>
                 {tagList}
             </ul>
@@ -37,3 +41,5 @@ export default function Post(props:any)  {
             /> */}
         </div>
     )}
+
+    <Moment format='MMMM Do YYYY, h:mm a'></Moment>

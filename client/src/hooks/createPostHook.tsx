@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 
-export const useCreate = () => {
+export const useCreatePost = () => {
     const [postCreated, setPostCreated] = useState<boolean>(false)
 
     const [newPost, setNewPost] = useState<{
