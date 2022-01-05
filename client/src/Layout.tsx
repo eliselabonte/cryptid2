@@ -5,7 +5,15 @@ import Main from './components/main/Main';
 import './layout.scss';
 
 export default function Layout(props: any) {
-  const { search, setSearch, postId, setPostId, postData, category, blogPosts } = props;
+  const { search, 
+    setSearch, 
+    postId, 
+    setPostId, 
+    postData, 
+    category, 
+    blogPosts, 
+    userExists, 
+    setUserExists } = props;
 
   const [navOpen, setNavOpen] = useState<boolean>(false);
 
@@ -24,6 +32,8 @@ export default function Layout(props: any) {
       <Main
         home={home}
         setHome={setHome} 
+        userExists={userExists}
+        setUserExists={setUserExists}
         postData={postData}
         postId={postId}
         setPostId={setPostId}

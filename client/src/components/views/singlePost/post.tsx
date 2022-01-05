@@ -26,7 +26,8 @@ export default function Post(props:any)  {
             onClick={() => {link(postData.id)}}>
             <section className='report-info'>
                 <h3 className='report-description'>{postData.description}</h3>
-                <h4 className='report-name-date'>by {postData.user.username ? postData.user.username : 'no one'} on <Moment format='MMMM Do YYYY, h:mm a'>{postData.timeFiled}</Moment></h4>
+                {/* TODO: why is this breaking @username? */}
+                {/* <h4 className='report-name-date'>by {postData.user.username ? postData.user.username : 'no one'} on <Moment format='MMMM Do YYYY, h:mm a'>{postData.timeFiled}</Moment></h4> */}
             </section>
             <p className='report'>{postData.report}</p>
             <p>time seen: {postData.timeSeen ? 
