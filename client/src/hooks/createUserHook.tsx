@@ -10,11 +10,7 @@ export const useCreateUser = () => {
     
         const {user} = useAuth0();
         const username = user?.nickname
-        console.log(username)
 
-    // grab nickname from user object see if user exists with this username in db
-    // if not, add user
-    console.log(userExists)
     useEffect( () => {
         if (!userExists && username)   {
             console.log('adding new user to API...', username)

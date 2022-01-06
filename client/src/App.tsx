@@ -28,7 +28,7 @@ export default function AllRoutes(children: any) {
                             setUserExists={setUserExists} />}>
                         <Route path='/' element={<Homepage setCategory={setCategory} />} />
                         <Route path='/blog/:category' element={<Blog category={category}/>} />
-                        <Route path='/dashboard' element={<Dashboard />} />
+                        {/* <Route path='/dashboard' element={<Dashboard />} /> */}
                         <Route path='/profile/:id' element={<Profile />} />
                         <Route path='/create' element={<Create userId={userId} />} />
                         <Route path='/search/:searchItems'element={<SearchLanding results={results} />} />
