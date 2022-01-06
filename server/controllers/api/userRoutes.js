@@ -27,4 +27,15 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.put('/username', async (req, res) => {
+  User.update(
+      req.body,
+      {where: { username: req.params.username } 
+  })
+  .then((post) => res.status(200).json(post))
+  .catch((err) => {
+    console.error(err);
+    res.status(500).json(err.toString())})
+})
+
 module.exports = router;

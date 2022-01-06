@@ -1,27 +1,51 @@
-// import React from "react";
+import { useState } from 'react';
 // this image is for dev, will be replaced by imported image
 import ProfilePic from '../../../images/nosferatu.png';
 import './profile.scss';
-
+import $ from 'jquery';
+import { useAuth0 } from '@auth0/auth0-react';
+import { AiOutlineForm, AiOutlineCheck } from "react-icons/ai";
 
 // TODO: profile contains saved info about user (probably stored in User table)
 //       post section is all posts by this user in order of date
-function Profile() {
+function Profile(props:any) {
+    const {formsOpen, setFormsOpen, setBio, setCreatures} = props
+
+    const { user } = useAuth0();
+    const username = user?.nickname;
+
+    function sendProfileUpdate() {
+        const newBio = $('#newBio').val();
+        const newCreatures = $('#newCreatures').val();
+
+        setBio(newBio);
+        setCreatures(newCreatures);
+
+        // set bio and creatures to these to call hook
+        // combine into one object?
+        setFormsOpen(false)
+    }
+
     return (
         <div className='Profile'>
             <div className='column-left'>
                 <section className='user-stuff'>
                     <img className='profile-pic' src={ProfilePic} alt="profile" />
-                    <h3 className='username'>Username: sasquatchbeliever</h3>
-                    <h4 className='bio'>Iam a 23 year old photographer from Dallas, TX. I enjoy monster hunting on the side. </h4>
+                    <h3 className='username'>{ username }</h3>
+                    {!formsOpen ? <h4 className='bio' id='bio'>I am a 23 year old photographer from Dallas, TX. I enjoy monster hunting on the side. </h4> :
+                    <input id='newBio'/>}
+                    {!formsOpen ? <AiOutlineForm onClick={() => setFormsOpen(true)}/> : <AiOutlineCheck onClick={() => sendProfileUpdate()}/>}
                 </section>
                 <div className='my-creatures'>
                     <h3>Creatures on my radar</h3>
-                    <ul>
+                    {!formsOpen ? <p id='creatures'>sasquatch, Mothman, Extra Terrestrials</p> :
+                    <input id='newCreatures'/>}
+                    {/* <ul>
                         <li>Sasquatch (Bigfoot)</li>
                         <li>Mothman</li>
                         <li>Extra Terrestrials</li>
-                    </ul>
+                    </ul> */}
+                    {!formsOpen ? <AiOutlineForm /> : <AiOutlineCheck onClick={() => sendProfileUpdate()}/>}
                 </div>
             </div>
 

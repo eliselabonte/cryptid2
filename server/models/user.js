@@ -16,13 +16,13 @@ User.init(
     username: {
       type: DataTypes.STRING,
       unique: true,
+    },
+    bio: {
+      type: DataTypes.STRING
+    },
+    creatures: {
+      type: DataTypes.STRING
     }
-    // email: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    //   unique: true,
-    //   required: false
-    // }
   },
   {
     sequelize,
