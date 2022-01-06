@@ -23,7 +23,7 @@ export const useUpdateProfile = () => {
                 const confirmUpdate = res.data;
                 console.log(confirmUpdate);
                 setFormsOpen(false)
-            });
+            })
     }, [bio, creatures]);
 
     return {setBio, setCreatures, setFormsOpen, formsOpen, bio, creatures}

@@ -1,18 +1,32 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 // this image is for dev, will be replaced by imported image
 import ProfilePic from '../../../images/nosferatu.png';
 import './profile.scss';
 import $ from 'jquery';
 import { useAuth0 } from '@auth0/auth0-react';
 import { AiOutlineForm, AiOutlineCheck } from "react-icons/ai";
+import axios from 'axios';
 
 // TODO: profile contains saved info about user (probably stored in User table)
 //       post section is all posts by this user in order of date
 function Profile(props:any) {
-    const {formsOpen, setFormsOpen, setBio, setCreatures} = props
+    const {formsOpen, setFormsOpen, setBio, setCreatures} = props;
+    const [profileData, setProfileData] = useState<{userBio:'', userCreatures:''}>({userBio:'', userCreatures:''})
 
     const { user } = useAuth0();
     const username = user?.nickname;
+
+    useEffect(() => {
+        axios.get(`/api/users/${username}`)
+            .then((res) => {
+                const userData = res.data
+                if(userData) {
+                    setProfileData({userBio: userData.bio, userCreatures: userData.creatures})
+                }
+            })
+    }, [formsOpen])
+
+    const {userBio, userCreatures} = profileData;
 
     function sendProfileUpdate() {
         const newBio = $('#newBio').val();
@@ -21,8 +35,7 @@ function Profile(props:any) {
         setBio(newBio);
         setCreatures(newCreatures);
 
-        // set bio and creatures to these to call hook
-        // combine into one object?
+        // TODO: combine bio and creatures into one object?
         setFormsOpen(false)
     }
 
@@ -32,13 +45,13 @@ function Profile(props:any) {
                 <section className='user-stuff'>
                     <img className='profile-pic' src={ProfilePic} alt="profile" />
                     <h3 className='username'>{ username }</h3>
-                    {!formsOpen ? <h4 className='bio' id='bio'>I am a 23 year old photographer from Dallas, TX. I enjoy monster hunting on the side. </h4> :
+                    {!formsOpen ? <h4 className='bio' id='bio'>{userBio ? userBio : 'add a bio!'}</h4> :
                     <input id='newBio'/>}
                     {!formsOpen ? <AiOutlineForm onClick={() => setFormsOpen(true)}/> : <AiOutlineCheck onClick={() => sendProfileUpdate()}/>}
                 </section>
                 <div className='my-creatures'>
                     <h3>Creatures on my radar</h3>
-                    {!formsOpen ? <p id='creatures'>sasquatch, Mothman, Extra Terrestrials</p> :
+                    {!formsOpen ? <p id='creatures'>{userCreatures ? userCreatures : 'add some creatures!'}</p> :
                     <input id='newCreatures'/>}
                     {/* <ul>
                         <li>Sasquatch (Bigfoot)</li>

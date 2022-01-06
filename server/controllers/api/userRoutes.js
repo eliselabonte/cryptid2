@@ -1,12 +1,13 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-router.get('/id', async (req, res) => {
+router.get('/:username', async (req, res) => {
   try {
-    const user = await Post.findAll({
-      where : {id: req.params.id}
+    const user = await User.findOne({
+      where : {username: req.params.username}
     })
     res.status(200).json(user)
+    console.log(req.params.username, user)
   }
   catch(err)  {
     res.status(500).json(err)
@@ -27,7 +28,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.put('/username', async (req, res) => {
+router.put('/:username', async (req, res) => {
   User.update(
       req.body,
       {where: { username: req.params.username } 
