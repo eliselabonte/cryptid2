@@ -28,7 +28,7 @@ export default function Layout(props: any) {
         navOpen={navOpen}
         setNavOpen={setNavOpen}
         search={search}
-        setSearch={setSearch} />
+        setSearch={setSearch}/>
       <Main
         home={home}
         setHome={setHome} 
