@@ -1,6 +1,6 @@
 div.post   {
     margin: 20px;
-    // margin-top: 100px;
+    width: 90%;
     background-color: var(--post);
     border-radius: 20px;
     padding: 20px;
@@ -16,5 +16,6 @@ h2.post-description, h3.post-report  {
 
 div.post > p {
     margin-top: 8px;
+    width:100%; 
 }
 

@@ -2,35 +2,49 @@ import './create.scss';
 import axios from 'axios';
 import $ from 'jquery';
 import { useAuth0 } from '@auth0/auth0-react';
+import Moment from 'react-moment';
+import moment from 'moment';
 
 export default function Create(props:any) {
-    const { user } = useAuth0();
+    const { user, isAuthenticated } = useAuth0();
     const { userId } = props;
+
+    console.log(isAuthenticated)
+
+    if(!isAuthenticated) {
+        window.alert('please log in to create a report.')
+    }
 
     function submitForm(e:any) {
         e.preventDefault()
 
-        const report = $('#report').val();
-        const description = $('#description').val();
-        const location = $('#location').val();
-        const timeSeen = $('#time').val();
-        const category = $('#category');
-        const category_id = category.val();
-        const user_id = userId;
-
-        axios.post(`/api/posts/`, {
-        report, 
-        description, 
-        location, 
-        timeSeen, 
-        category_id, 
-        user_id
-        })
-        .then((res) =>   {
-            const confirm = res.data;
-            console.log(category_id)
-            window.alert('new post created')
-        });
+        if(!isAuthenticated) {
+            window.alert('please log in to create a report.')
+        }
+        else {
+            const report = $('#report').val();
+            const description = $('#description').val();
+            const location = $('#location').val();
+            const dateTime = $('#time').val();
+            const timeSeen = moment(dateTime).format('YYYY-MM-DD HH:mm') || undefined;
+            const category = $('#category');
+            const category_id = category.val();
+            const user_id = userId;
+    
+            axios.post(`/api/posts/`, {
+            report, 
+            description, 
+            location, 
+            timeSeen, 
+            category_id, 
+            user_id
+            })
+            .then((res) =>   {
+                const confirm = res.data;
+                // console.log(confirm)
+                window.alert('new post created')
+            });
+        }        
     }
 
     return (
@@ -64,7 +78,7 @@ export default function Create(props:any) {
                 </div>
                 <div className="form-group">
                     <label htmlFor="time" className='label'>Time Seen</label>
-                    <input className="form-input" id="time" name="time" type='date' required />
+                    <input className="form-input" id="time" name="time" type='datetime-local' required />
                 </div> 
                 <div className="form-group submit-button">
                     <button type="submit">Report</button>

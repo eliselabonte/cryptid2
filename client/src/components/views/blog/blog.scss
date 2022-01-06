@@ -6,54 +6,7 @@ div.blog    {
     margin-top: 20px;
 }
 
-div.report  {
-    width:80%;
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--post);
-}
-
 h2.blog-title   {
     margin-bottom: 20px;
     color: white;
-}
-
-section.report-info {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-p.report    {
-    margin-top: 10px;
-    text-align: justify;
-}
-
-div.report-bottom   {
-    width: 90%;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: space-evenly;
-}
-
-ul.tags-list    {
-    width:90%;
-    margin-top: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-}
-
-.star-icon  {
-    color: var(--tan);
-}
-
-.star-icon:hover  {
-    color: var(--brown);
 }
