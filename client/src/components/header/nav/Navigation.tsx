@@ -6,15 +6,20 @@ import { useAuth0 } from '@auth0/auth0-react';
 export default function Navigation(props:any)   {
     const navigate = useNavigate();
     const { navOpen } = props;
-    const {user} = useAuth0();
+    const {user, isAuthenticated} = useAuth0();
     const username = user?.nickname
 
-    function link(name?:string) {
-        if (name) {
-            navigate (`/profile/${name}`, {replace:true})
+    function link(destination:string, name?:string) {
+        if (isAuthenticated) {
+            if(destination==='profile') {
+                navigate(`/${destination}/${name}`, {replace:true})
+            }
+            if (destination==='create') {
+                navigate(`/${destination}`)
+            }
         }
         else {
-            window.alert('please log in to view profile.')
+            window.alert('please log in to view profile or create report')
         }
         
     }
@@ -23,7 +28,7 @@ export default function Navigation(props:any)   {
         <nav className={`Nav ${navOpen ? '' : 'hidden'}`}>
             <ul className='nav-list'>
                 {/* TODO: fix this below */}
-                <li className='navbtn' onClick={() => {link(username)}}>
+                <li className='navbtn' onClick={() => {link('profile', username)}}>
                     Profile
                 </li>
                 {/* <li className='navbtn' >
@@ -32,9 +37,7 @@ export default function Navigation(props:any)   {
                 {/* <li className='navbtn' >
                     <Link to='/dashboard'>Dashboard</Link>
                 </li> */}
-                <li className='navbtn'>
-                    <Link to='/create'>Report a Sighting</Link>
-                </li>
+                <li className='navbtn' onClick={() => {link('create')}}>Report a Sighting</li>
             </ul>
         </nav>
     )
