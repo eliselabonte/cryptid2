@@ -2,7 +2,7 @@ import './homepage.scss';
 import { useState, Fragment } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import AllPosts from './allPosts/allPosts';
+import AllPosts from './allPosts';
 
 // interface Iprops {
 //     category?:string;

@@ -10,7 +10,6 @@ export const useCreateUser = () => {
     
     const {user} = useAuth0();
     const username = user?.nickname
-    console.log('createUserHook called!')
 
     // grab nickname from user object see if user exists with this username in db
     // if not, add user
@@ -20,7 +19,6 @@ export const useCreateUser = () => {
             .then((res) => {
                 const user = res.data;
                 if (user) {
-                    console.log(user.id)
                     setUserId(user.id)
                 }
             })

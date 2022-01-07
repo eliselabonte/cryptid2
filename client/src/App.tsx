@@ -10,6 +10,7 @@ import { useBlogData } from "./hooks/blogHook";
 import { useSinglePost } from "./hooks/postHook";
 import { useCreateUser } from "./hooks/createUserHook";
 import { useUpdateProfile } from "./hooks/updateProfileHook";
+import { useGetProfile } from "./hooks/getProfileHook";
 import Post from "./components/views/singlePost/post";
 import Create from "./components/views/create/create";
 
@@ -19,6 +20,7 @@ export default function AllRoutes(children: any) {
     const { postData, setPostId } = useSinglePost();
     const { userExists, setUserExists, userId } = useCreateUser();
     const { bio, creatures, formsOpen, setFormsOpen, setBio, setCreatures } = useUpdateProfile()
+    const { profileData } = useGetProfile();
 
     return (
         <BrowserRouter>
@@ -34,10 +36,9 @@ export default function AllRoutes(children: any) {
                         <Route path='/profile/:userId' element={<Profile 
                             formsOpen = {formsOpen}
                             setFormsOpen = {setFormsOpen}
-                            bio={bio} 
-                            creatures={creatures} 
                             setBio={setBio}
-                            setCreatures={setCreatures} />} />
+                            setCreatures={setCreatures}
+                            profileData= {profileData}  />} />
                         <Route path='/create' element={<Create userId={userId} />} />
                         <Route path='/search/:searchItems'element={<SearchLanding results={results} />} />
                         <Route path='/post/:id' element={<Post postData={postData} setPostId={setPostId}/>} />

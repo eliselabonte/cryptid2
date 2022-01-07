@@ -1,32 +1,23 @@
 import { useState, useEffect } from 'react';
 // this image is for dev, will be replaced by imported image
 import ProfilePic from '../../../images/nosferatu.png';
+import UserPosts from './userPosts';
 import './profile.scss';
 import $ from 'jquery';
-import { useAuth0 } from '@auth0/auth0-react';
+import { useAuth0, User } from '@auth0/auth0-react';
 import { AiOutlineForm, AiOutlineCheck } from "react-icons/ai";
 import axios from 'axios';
 
 // TODO: profile contains saved info about user (probably stored in User table)
 //       post section is all posts by this user in order of date
 function Profile(props:any) {
-    const {formsOpen, setFormsOpen, setBio, setCreatures} = props;
-    const [profileData, setProfileData] = useState<{userBio:'', userCreatures:''}>({userBio:'', userCreatures:''})
+    const {formsOpen, setFormsOpen, setBio, setCreatures, profileData} = props;
 
     const { user } = useAuth0();
     const username = user?.nickname;
 
-    useEffect(() => {
-        axios.get(`/api/users/${username}`)
-            .then((res) => {
-                const userData = res.data
-                if(userData) {
-                    setProfileData({userBio: userData.bio, userCreatures: userData.creatures})
-                }
-            })
-    }, [formsOpen])
-
-    const {userBio, userCreatures} = profileData;
+    const {userId, userBio, userCreatures} = profileData;
+    console.log(userCreatures)
 
     function sendProfileUpdate() {
         const newBio = $('#newBio').val();
@@ -53,18 +44,16 @@ function Profile(props:any) {
                     <h3>Creatures on my radar</h3>
                     {!formsOpen ? <p id='creatures'>{userCreatures ? userCreatures : 'add some creatures!'}</p> :
                     <input id='newCreatures'/>}
-                    {/* <ul>
-                        <li>Sasquatch (Bigfoot)</li>
-                        <li>Mothman</li>
-                        <li>Extra Terrestrials</li>
-                    </ul> */}
                     {!formsOpen ? <AiOutlineForm /> : <AiOutlineCheck onClick={() => sendProfileUpdate()}/>}
                 </div>
             </div>
-
             <div className='my-reports column-right'>
                 <h2 className='profile-title'>My Reports</h2>
-                <div className='report'>
+                <UserPosts userId={userId}/>
+
+                {/* TODO: add report button (link to /create) */}
+
+                {/* <div className='report'>
                     <section className='report-info'>
                         <h3 className='report-title'>Saw Bigfoot at Wal-Mart!</h3>
                         <h4 className='report-name-date'>by sasquatch believer on 11/26/2021</h4>
@@ -99,7 +88,7 @@ function Profile(props:any) {
                         <li className='report-tag'>#sighting</li>
                         <li className='report-tag'>#encounter</li>
                     </ul>
-                </div>
+                </div> */}
             </div>
         </div>
     )
