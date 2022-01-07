@@ -13,12 +13,12 @@ export default function Layout(props: any) {
     category, 
     blogPosts, 
     userExists, 
-    setUserExists } = props;
+    setUserExists,
+    home,
+    setHome } = props;
 
   const [navOpen, setNavOpen] = useState<boolean>(false);
-
-  const [home, setHome] = useState<boolean>(true);
-  // TODO: set this ^ variable to false any time we are not on home page?
+  console.log({home})
 
   return (
     <Fragment>

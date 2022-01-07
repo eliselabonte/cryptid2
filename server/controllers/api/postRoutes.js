@@ -34,7 +34,6 @@ router.get('/profile/:userId', async (req, res) => {
     const posts = await Post.findAll({
       where : {user_id: req.params.userId}
     })
-    console.log("\x1b[35m", req.params.userId, posts)
     res.status(200).json(posts)
   }
   catch(err)  {

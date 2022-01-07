@@ -17,6 +17,8 @@ export default function Post(props:any)  {
         })
     }
 
+    const safeUsername = postData.user?.username || null
+
     function link(id:number) {
         navigate (`/post/${id}`, {replace:true})
     }
@@ -27,7 +29,7 @@ export default function Post(props:any)  {
             <section className='report-info'>
                 <h3 className='report-description'>{postData.description}</h3>
                 {/* TODO: why is this breaking @username? */}
-                {/* <h4 className='report-name-date'>by {postData.user.username ? postData.user.username : 'no one'} on <Moment format='MMMM Do YYYY, h:mm a'>{postData.timeFiled}</Moment></h4> */}
+                <h4 className='report-name-date'>{safeUsername!==null ? `by ${safeUsername}` : null} on <Moment format='MMMM Do YYYY, h:mm a'>{postData.timeFiled}</Moment></h4>
             </section>
             <p className='report'>{postData.report}</p>
             <p>time seen: {postData.timeSeen ? 

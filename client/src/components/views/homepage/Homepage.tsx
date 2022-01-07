@@ -10,7 +10,7 @@ import AllPosts from './allPosts';
 // }
 
 export default function Homepage(props:any) {
-    const {category, setCategory} = props;
+    const {category, setCategory, setHome, home} = props;
 
     let navigate = useNavigate()
 
@@ -19,6 +19,7 @@ export default function Homepage(props:any) {
         console.log('category selected:', cat)
         navigate(`/blog/${cat}`, {replace:true})
     }
+    setHome(true)
 
     return  (
         <Fragment>

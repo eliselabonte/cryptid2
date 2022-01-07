@@ -9,8 +9,6 @@ export const useGetProfile = () => {
     // if forms are NOT open, call useEffect to retrieve data
     const {formsOpen} = useUpdateProfile();
     const [profileData, setProfileData] = useState<{userId:number ,userBio:'', userCreatures:''}>({userId: 4,userBio:'', userCreatures:''})
-    
-    console.log('getProfile called!')
 
     const {user} = useAuth0();
     const username = user?.nickname
