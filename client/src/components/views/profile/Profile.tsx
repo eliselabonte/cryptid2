@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import ProfilePic from '../../../images/nosferatu.png';
 import UserPosts from './userPosts';
 import './profile.scss';
-import $ from 'jquery';
 import { useAuth0, User } from '@auth0/auth0-react';
 import { AiOutlineForm, AiOutlineCheck } from "react-icons/ai";
 import axios from 'axios';
@@ -17,14 +16,10 @@ function Profile(props:any) {
     const username = user?.nickname;
 
     const {userId, userBio, userCreatures} = profileData;
-    console.log(userCreatures)
 
+    
     function sendProfileUpdate() {
-        const newBio = $('#newBio').val();
-        const newCreatures = $('#newCreatures').val();
-
-        setBio(newBio);
-        setCreatures(newCreatures);
+        console.log(userCreatures)
 
         // TODO: combine bio and creatures into one object?
         setFormsOpen(false)
@@ -37,13 +32,13 @@ function Profile(props:any) {
                     <img className='profile-pic' src={ProfilePic} alt="profile" />
                     <h3 className='username'>{ username }</h3>
                     {!formsOpen ? <h4 className='bio' id='bio'>{userBio ? userBio : 'add a bio!'}</h4> :
-                    <input id='newBio'/>}
+                    <input id='newBio' value={userBio} />}
                     {!formsOpen ? <AiOutlineForm onClick={() => setFormsOpen(true)}/> : <AiOutlineCheck onClick={() => sendProfileUpdate()}/>}
                 </section>
                 <div className='my-creatures'>
                     <h3>Creatures on my radar</h3>
                     {!formsOpen ? <p id='creatures'>{userCreatures ? userCreatures : 'add some creatures!'}</p> :
-                    <input id='newCreatures'/>}
+                    <input id='newCreatures' value={userCreatures}/>}
                     {!formsOpen ? <AiOutlineForm /> : <AiOutlineCheck onClick={() => sendProfileUpdate()}/>}
                 </div>
             </div>

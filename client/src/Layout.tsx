@@ -18,7 +18,7 @@ export default function Layout(props: any) {
     setHome } = props;
 
   const [navOpen, setNavOpen] = useState<boolean>(false);
-  console.log({home})
+  // console.log({home})
 
   return (
     <Fragment>

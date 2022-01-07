@@ -6,15 +6,14 @@ export const useSearch = () =>  {
     const [results, setResults] = useState([{}]);
 
     useEffect( () => {
+        console.log('search changed!', search)
         if (search!==undefined)   {
-            // console.log('fetching searchResults from API...', search)
             axios.get(`/api/tags/${search}`)
             .then((res) =>   {
                 const foundResults = res.data
                 setResults(foundResults)
             });
         }
-        // SPRINKLES: add query parameters
     }, [search] );
 
     return {search, setSearch, results};
