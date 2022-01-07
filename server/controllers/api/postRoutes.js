@@ -29,6 +29,18 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+router.get('/profile/:userId', async (req, res) => {
+  try {
+    const posts = await Post.findAll({
+      where : {user_id: req.params.userId}
+    })
+    console.log("\x1b[35m", req.params.userId, posts)
+    res.status(200).json(posts)
+  }
+  catch(err)  {
+    res.status(500).json(err)
+  }
+})
 
 // Creating a new post
 router.post('/', async (req, res) => {
