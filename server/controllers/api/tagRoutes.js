@@ -20,12 +20,12 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/:id', async (req, res) => {
-  // find a single tag by its `id`
+router.get('/:tagName', async (req, res) => {
+  // find a single tag by its `tagName`
     try {
         const tags = await Tag.findAll( {
             where: {
-                tag_name: req.params.id
+                tag_name: req.params.tagName
             },
             include:  [{model: Post}]
         })

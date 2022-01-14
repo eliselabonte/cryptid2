@@ -96,6 +96,26 @@ const seedPosts = async () => {
       user_id: randomCalc(users),
       tag_id: randomCalc(tags)
     },
+    {
+      report: "The ice cream man in my neighborhood is a rascal. Always getting kids worked up and playing his music too loud. If I had my way, there wouldn't be music! or ice cream. Man I\'m sad.",
+      description:"cheery, colorful, pistachio-flavored",
+      location: "Phippsburg, ME",
+      timeSeen: "2022-01-02 16:00:00",
+      timeFiled: "2022-01-06 19:10:52",
+      category_id: 4,
+      user_id: 4,
+      tag_id: 9
+    },
+    {
+      report: "There is a thing that watches my apartment from the tree line. I only ever see it during snow storms, but it's been a cold winter so I've seen it a lot recently. Its eyes glow blue and it has a spikey crown growing from its head. I keep feeling like it's going to turn me into one of them.",
+      description:"White, walks upright, glowing blue eyes",
+      location: "Bath, ME",
+      timeSeen: "2021-12-20 05:22:00",
+      timeFiled: "2022-01-07 14:21:37",
+      category_id: 1,
+      user_id: 4,
+      tag_id: 6
+    }
   ];
 
   try {

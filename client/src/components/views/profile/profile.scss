@@ -68,34 +68,3 @@ div.my-reports  {
     justify-content: space-evenly;
     margin: 10px;
 }
-
-div.report  {
-    width:90%;
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--post);
-}
-
-section.report-info {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-p.report    {
-    margin-top: 10px;
-    text-align: justify;
-}
-
-ul.tags-list    {
-    width:90%;
-    margin-top: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-}

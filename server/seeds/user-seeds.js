@@ -3,15 +3,17 @@ const { User } = require('../models');
 const userData =[
   {
     username: "neckbeard54"
-    // email: "chickmagnet@friendzone.com"
   },
   {
     username: "sasquatchbeliever"
-    // email: "coderedmtdew@momsbasement.org"
   },
   {
     username: "badsmells297"
-    // email: "plantdaddy@gmail.com"
+  },
+  {
+    username: "emlabonte714",
+    bio: "just your average monster hunter",
+    creatures: 'white walkers, the local ice cream man'
   }
 ];
 

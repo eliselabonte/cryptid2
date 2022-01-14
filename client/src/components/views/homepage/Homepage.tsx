@@ -2,7 +2,7 @@ import './homepage.scss';
 import { useState, Fragment } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import AllPosts from './allPosts/allPosts';
+import AllPosts from './allPosts';
 
 // interface Iprops {
 //     category?:string;
@@ -10,7 +10,7 @@ import AllPosts from './allPosts/allPosts';
 // }
 
 export default function Homepage(props:any) {
-    const {category, setCategory} = props;
+    const {category, setCategory, setHome, home} = props;
 
     let navigate = useNavigate()
 
@@ -19,6 +19,7 @@ export default function Homepage(props:any) {
         console.log('category selected:', cat)
         navigate(`/blog/${cat}`, {replace:true})
     }
+    setHome(true)
 
     return  (
         <Fragment>
