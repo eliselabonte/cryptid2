@@ -23,6 +23,7 @@ export default function Homepage(props:any) {
 
     return  (
         <Fragment>
+            <h2 className='tagline homepage'>a place for believers, theorists, and those who have seen the unexplainable....</h2>
             <div className='category-container'>
                 <div className='category-card'>
                     <h3 className='category-name'>Cryptid</h3>

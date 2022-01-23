@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
 interface Istate {
     report:'', 
     description:'', 
@@ -13,7 +12,6 @@ interface Istate {
     user_id:number}
 
 export default function Create(props:any) {
-    const { register, handleSubmit } = useForm();
 
     const { user, isAuthenticated } = useAuth0();
     const { userId } = props;
@@ -90,7 +88,6 @@ export default function Create(props:any) {
                     <textarea 
                     className="form-input description" 
                     id="description" name="description"
-                    value={newReport.description} 
                     onChange={updateField('description')} required></textarea>
                 </div>
                 <div className="form-group">
@@ -98,7 +95,6 @@ export default function Create(props:any) {
                     <textarea 
                     className="form-input" 
                     id="location" name="name"
-                    value={newReport.locationSeen} 
                     onChange={updateField('locationSeen')} required ></textarea>
                 </div>
                 <div className="form-group">
@@ -107,7 +103,6 @@ export default function Create(props:any) {
                     className="form-input" 
                     id="time" name="timeSeen" 
                     type='datetime-local'
-                    value={newReport.timeSeen} 
                     onChange={updateField('timeSeen')} required/>
                 </div> 
                 <div className="form-group submit-button">

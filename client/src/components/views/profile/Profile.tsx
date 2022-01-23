@@ -3,9 +3,8 @@ import { useState, useEffect } from 'react';
 import ProfilePic from '../../../images/nosferatu.png';
 import UserPosts from './userPosts';
 import './profile.scss';
-import { useAuth0, User } from '@auth0/auth0-react';
+import { useAuth0 } from '@auth0/auth0-react';
 import { AiOutlineForm, AiOutlineCheck } from "react-icons/ai";
-import axios from 'axios';
 
 // TODO: profile contains saved info about user (probably stored in User table)
 //       post section is all posts by this user in order of date
@@ -13,15 +12,26 @@ function Profile(props:any) {
     const {formsOpen, setFormsOpen, setBio, setCreatures, profileData} = props;
 
     const { user } = useAuth0();
-    const username = user?.nickname;
+    const nickname = user?.nickname;
 
     const {userId, userBio, userCreatures} = profileData;
 
-    
-    function sendProfileUpdate() {
-        console.log(userCreatures)
+    let tempBio:string
+    let tempCreatures:string
 
-        // TODO: combine bio and creatures into one object?
+    const updateField = (key:number) => (event:any) => { 
+        if (key===1) {
+            tempBio = event.target.value
+        }
+        if (key===2) {
+            tempCreatures = event.target.value
+        }
+    }
+
+    function sendProfileUpdate() {
+        setBio(tempBio)
+        setCreatures(tempCreatures)
+        console.log('sent')
         setFormsOpen(false)
     }
 
@@ -30,15 +40,15 @@ function Profile(props:any) {
             <div className='column-left'>
                 <section className='user-stuff'>
                     <img className='profile-pic' src={ProfilePic} alt="profile" />
-                    <h3 className='username'>{ username }</h3>
+                    <h3 className='username'>{ nickname }</h3>
                     {!formsOpen ? <h4 className='bio' id='bio'>{userBio ? userBio : 'add a bio!'}</h4> :
-                    <input id='newBio' value={userBio} />}
+                    <input id='newBio' onChange={updateField(1)} />}
                     {!formsOpen ? <AiOutlineForm onClick={() => setFormsOpen(true)}/> : <AiOutlineCheck onClick={() => sendProfileUpdate()}/>}
                 </section>
                 <div className='my-creatures'>
                     <h3>Creatures on my radar</h3>
                     {!formsOpen ? <p id='creatures'>{userCreatures ? userCreatures : 'add some creatures!'}</p> :
-                    <input id='newCreatures' value={userCreatures}/>}
+                    <input id='newCreatures' onChange={updateField(2)} />}
                     {!formsOpen ? <AiOutlineForm onClick={() => setFormsOpen(true)}/> : <AiOutlineCheck onClick={() => sendProfileUpdate()}/>}
                 </div>
             </div>

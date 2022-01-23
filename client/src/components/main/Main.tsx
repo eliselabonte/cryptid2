@@ -10,7 +10,6 @@ export default function Main(props:any) {
             <Link to='/' >
                 {/* TODO: onClick={() => setHome(true)} add to below when setHome is working */}
                 <h1>CRYPT-ID</h1></Link >
-                <h2 className={ home ? 'tagline homepage' : 'tagline homepage'}>a place for believers, theorists, and those who have seen the unexplainable....</h2>
             <Outlet />
         </main>
     )

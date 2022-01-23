@@ -14,15 +14,6 @@ export const useCreateUser = () => {
     // grab nickname from user object see if user exists with this username in db
     // if not, add user
     useEffect( () => {
-        if (username) {
-            axios.get(`api/users/${username}`)
-            .then((res) => {
-                const user = res.data;
-                if (user) {
-                    setUserId(user.id)
-                }
-            })
-        }
         if (!userExists && username)   {
             console.log('adding new user to API...', username)
             axios.post(`/api/users`, {username: username})
@@ -33,8 +24,16 @@ export const useCreateUser = () => {
                 setUserId(userConfirm.id)
             });
         }
-        
-    });
+        if (username) {
+            axios.get(`api/users/${username}`)
+            .then((res) => {
+                const user = res.data;
+                if (user) {
+                    setUserId(user.id)
+                }
+            })
+        }
+    }, [username]);
 
     return {userExists, setUserExists, userId}
 }

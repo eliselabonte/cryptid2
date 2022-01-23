@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
 
 router.put('/:username', async (req, res) => {
   User.update(
-      req.body,
+      {bio: req.body.bio, creatures: req.body.creatures},
       {where: { username: req.params.username } 
   })
   .then((post) => res.status(200).json(post))
