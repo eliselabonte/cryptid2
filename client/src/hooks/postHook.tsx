@@ -14,7 +14,8 @@ export const useSinglePost = () => {
                 setPostData(post)
             });
         }
-        setPostId(2)
+        setPostId(4)
+        console.log({setPostId})
     }, [postId] );
 
     return {postData, setPostId}

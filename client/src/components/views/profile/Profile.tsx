@@ -39,7 +39,7 @@ function Profile(props:any) {
                     <h3>Creatures on my radar</h3>
                     {!formsOpen ? <p id='creatures'>{userCreatures ? userCreatures : 'add some creatures!'}</p> :
                     <input id='newCreatures' value={userCreatures}/>}
-                    {!formsOpen ? <AiOutlineForm /> : <AiOutlineCheck onClick={() => sendProfileUpdate()}/>}
+                    {!formsOpen ? <AiOutlineForm onClick={() => setFormsOpen(true)}/> : <AiOutlineCheck onClick={() => sendProfileUpdate()}/>}
                 </div>
             </div>
             <div className='my-reports column-right'>

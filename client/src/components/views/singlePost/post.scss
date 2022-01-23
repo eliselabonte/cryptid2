@@ -6,6 +6,10 @@ div.post   {
     padding: 20px;
 }
 
+div.post > * {
+    margin-top: 5px;
+}
+
 div.post:hover  {
     background-color: rgba(255, 255, 255, 0.835);
 }
@@ -17,5 +21,10 @@ h2.post-description, h3.post-report  {
 div.post > p {
     margin-top: 8px;
     width:100%; 
+}
+
+div.align-right {
+    display: flex;
+    justify-content: flex-end;
 }
 
