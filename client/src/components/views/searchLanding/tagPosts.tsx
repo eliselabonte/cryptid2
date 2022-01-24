@@ -7,23 +7,22 @@ export default function TagPosts(props:any) {
     const { results } = props;
     console.log(results)
     const safeResults = results || [];
+
+    // all results from query
     const foundPosts = safeResults.map((result:any) => {
         const safePosts = result.posts || [];
         console.log(safePosts)
-        // !safeResults || safeResults===[] || safeResults!==results
+        !safeResults || safeResults===[] || safeResults!==results
         if (safeResults){
             console.log(safePosts)
             return(<div></div>)
         }
         else{
-            console.log('nah')
+            console.log('no search results')
             // TODO: some error here
             return(
                 <h2>No results found</h2>
             )
-            // return(
-            //     <Post postData={post} key={i}/>
-            // )
         }
     })
 

@@ -23,7 +23,7 @@ export default function Post(props:any)  {
     const safeUsername = postData.user?.username || null;
 
     function link(id:number) {
-        console.log(setPostId)
+        // console.log(setPostId)
         navigate (`/post/${id}`, {replace:true})
     }
 

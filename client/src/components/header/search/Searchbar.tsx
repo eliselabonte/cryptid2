@@ -17,7 +17,6 @@ export default function Searchbar(props:Iprops) {
         event.preventDefault();
         if(inputValue!==''){
             setSearch(inputValue);
-            console.log('search changed to ', search)
             // TODO: search not updating to input value, remains undefined
 
             navigate(`/search/${inputValue}`, { replace: true });

@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 // this image is for dev, will be replaced by imported image
 import ProfilePic from '../../../images/nosferatu.png';
 import UserPosts from './userPosts';
