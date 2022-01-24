@@ -20,9 +20,6 @@ Post.belongsTo(Category, {
   foreignKey: 'category_id'
 });
 
-// user has many posts which they have written,
-// user has many posts which they have favorited,
-// posts can be saved by many users
 Post.belongsTo(User, {
   foreignKey: 'user_id'
 });
