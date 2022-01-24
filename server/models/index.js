@@ -6,8 +6,6 @@ const Category = require('./category')
 const Post = require('./post');
 const Tag = require('./tag');
 const PostTag = require('./postTag');
-const UserPost = require('./userPost');
-require('./search');
 
 User.hasMany(Post, {
   foreignKey: 'user_id',
@@ -22,10 +20,6 @@ Post.belongsTo(Category, {
 
 Post.belongsTo(User, {
   foreignKey: 'user_id'
-});
-
-User.belongsToMany(Post, {
-  through: UserPost
 });
 
 Post.belongsToMany(Tag, {

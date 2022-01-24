@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import AllPosts from './allPosts';
 
 export default function Homepage(props:any) {
-    const {setCategory, setHome} = props;
+    const {setCategory} = props;
 
     let navigate = useNavigate()
 
@@ -13,7 +13,6 @@ export default function Homepage(props:any) {
         console.log('category selected:', cat)
         navigate(`/blog/${cat}`, {replace:true})
     }
-    setHome(true)
 
     return  (
         <Fragment>

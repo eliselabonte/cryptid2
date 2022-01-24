@@ -12,7 +12,6 @@ export default function TagPosts(props:any) {
     const foundPosts = safeResults.map((result:any) => {
         const safePosts = result.posts || [];
         console.log(safePosts)
-        !safeResults || safeResults===[] || safeResults!==results
         if (safeResults){
             console.log(safePosts)
             return(<div></div>)
