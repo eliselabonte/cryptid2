@@ -21,7 +21,7 @@ export default function AllRoutes(children: any) {
     const { userExists, setUserExists, userId } = useCreateUser();
     const { formsOpen, setFormsOpen, setBio, setCreatures } = useUpdateProfile()
     const { profileData } = useGetProfile();
-    const { home, setHome } = useHome();
+    const { setHome } = useHome();
 
     return (
         <BrowserRouter>
@@ -33,7 +33,6 @@ export default function AllRoutes(children: any) {
                             setUserExists={setUserExists} />}>
                         <Route path='/' element={<Homepage 
                             setCategory={setCategory}
-                            home={home}
                             setHome={setHome}/>} />
                         <Route path='/blog/:category' element={<Blog category={category}/>} />
                         <Route path='/dashboard' element={<Dashboard />} />

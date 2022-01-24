@@ -1,16 +1,10 @@
 import './homepage.scss';
-import { useState, Fragment } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { Fragment } from 'react';
+import { useNavigate } from 'react-router-dom';
 import AllPosts from './allPosts';
 
-// interface Iprops {
-//     category?:string;
-//     setCategory?:(a:string) => {};
-// }
-
 export default function Homepage(props:any) {
-    const {category, setCategory, setHome, home} = props;
+    const {setCategory, setHome} = props;
 
     let navigate = useNavigate()
 
