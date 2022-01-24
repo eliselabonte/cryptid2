@@ -6,7 +6,6 @@ export const useSearch = () =>  {
     const [results, setResults] = useState([{}]);
 
     useEffect( () => {
-        console.log('search changed!', search)
         if (search!==undefined)   {
             axios.get(`/api/tags/${search}`)
             .then((res) =>   {

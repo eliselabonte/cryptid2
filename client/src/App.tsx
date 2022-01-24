@@ -43,7 +43,9 @@ export default function AllRoutes(children: any) {
                             setCreatures={setCreatures}
                             profileData= {profileData}  />} />
                         <Route path='/create' element={<Create userId={userId} />} />
-                        <Route path='/search/:searchItems'element={<SearchLanding results={results} />} />
+                        <Route path='/search/:searchItems'element={<SearchLanding 
+                        results={results} 
+                        search={search} />} />
                         <Route path='/post/:id' element={<Post postData={postData} setPostId={setPostId}/>} />
                     </Route>
                 </Routes>
