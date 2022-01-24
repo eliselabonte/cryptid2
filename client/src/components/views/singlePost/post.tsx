@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Moment from 'react-moment';
 import { useAuth0 } from '@auth0/auth0-react';
 import { FaTrash } from 'react-icons/fa';
+import axios from 'axios';
 
 export default function Post(props:any)  {
     const {isAuthenticated, user} = useAuth0();
@@ -19,11 +20,16 @@ export default function Post(props:any)  {
         })
     }
 
-    const safeUsername = postData.user?.username || null
+    const safeUsername = postData.user?.username || null;
 
     function link(id:number) {
         console.log(setPostId)
         navigate (`/post/${id}`, {replace:true})
+    }
+
+    function deletePost(id:number) {
+        try {axios.delete(`/api/posts/${id}`)}
+        catch(err){console.log(err)}
     }
 
     return  (
@@ -41,7 +47,7 @@ export default function Post(props:any)  {
                 {tagList}
             </ul>
             <div className='align-right'>
-                {isAuthenticated && safeUsername===nickname ? <FaTrash /> : null}
+                {isAuthenticated && safeUsername===nickname ? <FaTrash onClick={()=>{deletePost(postData.id)}}/> : null}
             </div>
         </div>
     )}

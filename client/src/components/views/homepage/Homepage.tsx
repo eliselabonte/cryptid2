@@ -1,16 +1,10 @@
 import './homepage.scss';
-import { useState, Fragment } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { Fragment } from 'react';
+import { useNavigate } from 'react-router-dom';
 import AllPosts from './allPosts';
 
-// interface Iprops {
-//     category?:string;
-//     setCategory?:(a:string) => {};
-// }
-
 export default function Homepage(props:any) {
-    const {category, setCategory, setHome, home} = props;
+    const {setCategory, setHome} = props;
 
     let navigate = useNavigate()
 
@@ -23,6 +17,7 @@ export default function Homepage(props:any) {
 
     return  (
         <Fragment>
+            <h2 className='tagline homepage'>a place for believers, theorists, and those who have seen the unexplainable....</h2>
             <div className='category-container'>
                 <div className='category-card'>
                     <h3 className='category-name'>Cryptid</h3>

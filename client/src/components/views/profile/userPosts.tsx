@@ -7,7 +7,6 @@ export default function UserPosts(props:any) {
     const [userPosts, setUserPosts] = useState([]);
 
     const {userId} = props;
-    console.log(userId)
 
     useEffect(() => {
         if (userPosts.length === 0)  {

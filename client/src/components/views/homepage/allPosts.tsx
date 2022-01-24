@@ -17,7 +17,7 @@ export default function AllPosts() {
                     console.error(err)
                 })
         }
-    }, [allPosts])
+    })
     
     const posts = allPosts.map((post, i) =>  {
         return(

@@ -9,8 +9,7 @@ import { useSearch } from "./hooks/searchHook";
 import { useBlogData } from "./hooks/blogHook";
 import { useSinglePost } from "./hooks/postHook";
 import { useCreateUser } from "./hooks/createUserHook";
-import { useUpdateProfile } from "./hooks/updateProfileHook";
-import { useGetProfile } from "./hooks/getProfileHook";
+import { useUpdateProfile, useGetProfile } from "./hooks/profileHook";
 import { useHome } from './hooks/homeDisplayHook';
 import Post from "./components/views/singlePost/post";
 import Create from "./components/views/create/create";
@@ -22,7 +21,7 @@ export default function AllRoutes(children: any) {
     const { userExists, setUserExists, userId } = useCreateUser();
     const { formsOpen, setFormsOpen, setBio, setCreatures } = useUpdateProfile()
     const { profileData } = useGetProfile();
-    const { home, setHome } = useHome();
+    const { setHome } = useHome();
 
     return (
         <BrowserRouter>
@@ -34,7 +33,6 @@ export default function AllRoutes(children: any) {
                             setUserExists={setUserExists} />}>
                         <Route path='/' element={<Homepage 
                             setCategory={setCategory}
-                            home={home}
                             setHome={setHome}/>} />
                         <Route path='/blog/:category' element={<Blog category={category}/>} />
                         <Route path='/dashboard' element={<Dashboard />} />
