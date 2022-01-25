@@ -4,9 +4,6 @@ import axios from 'axios';
 import Post from '../singlePost/post';
 
 export default function Blog(props:any) {   
-    // TODO: Define prop types
-    //       return all blog posts for a given category
-    //       address is '/blog/:category'
     const {category} = props;
     const [categoryPosts, setCategoryPosts] = useState<any[]>([])
 
@@ -28,7 +25,6 @@ export default function Blog(props:any) {
             })
     
         return  (
-            // this is for all posts or a specific category
             <div className='blog'>
                 <h2 className='blog-title'>{category} reports</h2>
                 {postMap}

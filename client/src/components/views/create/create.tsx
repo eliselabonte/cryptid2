@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-interface Istate {
+interface iNewPost {
     report:'', 
     description:'', 
     locationSeen:'', 
@@ -17,7 +17,7 @@ export default function Create(props:any) {
     const { userId } = props;
     const navigate = useNavigate();
 
-    const [newReport, setNewReport] = useState<Istate>({
+    const [newReport, setNewReport] = useState<iNewPost>({
             report:'', 
             description:'', 
             locationSeen:'', 

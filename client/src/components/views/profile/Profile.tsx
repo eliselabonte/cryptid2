@@ -16,7 +16,7 @@ function Profile(props:any) {
     const [formsOpen, setFormsOpen] = useState<boolean>(false);
     const [tempProfileData, setTempProfileData] = useState<iProfileData>({ bio:'', creatures:'' })
 
-    const {setBio, setCreatures, setSendUpdate, profileData, hasFetched, hasNotFetched} = props;
+    const {setBio, setCreatures, setSendUpdate, profileData, hasNotFetched} = props;
 
     const { user } = useAuth0();
     const nickname = user?.nickname;

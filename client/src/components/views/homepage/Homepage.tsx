@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import AllPosts from './allPosts';
 
 export default function Homepage(props:any) {
-    const {setCategory} = props;
+    const {setCategory, setPostId} = props;
 
     let navigate = useNavigate()
 
@@ -54,7 +54,7 @@ export default function Homepage(props:any) {
                     >Reports</button>
                 </div>
             </div>
-            <AllPosts />
+            <AllPosts setPostId={setPostId} />
         </Fragment>
     )
 }

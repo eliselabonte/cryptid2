@@ -3,7 +3,6 @@ import { Outlet } from 'react-router';
 import { Link, useLocation } from 'react-router-dom';
 
 export default function Main(props:any) {
-    const {home, setHome} = props;
     const location = useLocation();
     const isHome = location.pathname==='/' ? 'homepage cryptid' : 'cryptid';
 

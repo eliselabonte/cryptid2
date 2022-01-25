@@ -7,6 +7,7 @@ import Profile from "./components/views/profile/Profile";
 import SearchLanding from "./components/views/searchLanding/SearchLanding";
 import { useSearch } from "./hooks/searchHook";
 import { useBlogData } from "./hooks/blogHook";
+import { useSinglePost } from "./hooks/postHook";
 import { useCreateUser } from "./hooks/createUserHook";
 import { useGetProfile } from './hooks/getProfileHook'
 import { useUpdateProfile } from "./hooks/updateProfileHook";
@@ -19,6 +20,8 @@ export default function AllRoutes(children: any) {
     const { userExists, setUserExists, userId } = useCreateUser();
     const { setSendUpdate, setBio, setCreatures } = useUpdateProfile()
     const { profileData, hasFetched, hasNotFetched } = useGetProfile();
+    const { singlePostData, setPostId } = useSinglePost();
+
 
     return (
         <BrowserRouter>
@@ -29,7 +32,8 @@ export default function AllRoutes(children: any) {
                             userExists={userExists}
                             setUserExists={setUserExists} />}>
                         <Route path='/' element={<Homepage 
-                            setCategory={setCategory}/>} />
+                            setCategory={setCategory}
+                            setPostId={setPostId} />} />
                         <Route path='/blog/:category' element={<Blog category={category}/>} />
                         <Route path='/dashboard' element={<Dashboard />} />
                         <Route path='/profile/:userId' element={<Profile 
@@ -43,7 +47,9 @@ export default function AllRoutes(children: any) {
                         <Route path='/search/:searchItems'element={<SearchLanding 
                         results={results} 
                         search={search} />} />
-                        <Route path='/post/:id' element={<Post/>} />
+                        <Route path='/post/:id' element={<Post 
+                        setPostId={setPostId} 
+                        singlePostData={singlePostData}/>} />
                     </Route>
                 </Routes>
         </BrowserRouter>
