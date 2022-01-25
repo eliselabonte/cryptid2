@@ -4,16 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import AllPosts from './allPosts';
 
 export default function Homepage(props:any) {
-    const {setCategory, setHome} = props;
+    const {setCategory, setPostId} = props;
 
     let navigate = useNavigate()
 
     function getBlog(cat:string)  {
         setCategory(cat);
-        console.log('category selected:', cat)
         navigate(`/blog/${cat}`, {replace:true})
     }
-    setHome(true)
 
     return  (
         <Fragment>
@@ -56,7 +54,7 @@ export default function Homepage(props:any) {
                     >Reports</button>
                 </div>
             </div>
-            <AllPosts />
+            <AllPosts setPostId={setPostId} />
         </Fragment>
     )
 }

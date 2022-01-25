@@ -1,22 +1,37 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+import { iPost, defaultPost } from '../utils/iPostFormat'
 
 export const useSinglePost = () => {
-    const [postId, setPostId] = useState<number>(1);
-    const [postData, setPostData] = useState<{}>({});
+    // this is where it is breaking. postId not updating with array of posts
+    const [postId, setPostId] = useState<number>(0);
+    const [singlePostData, setSinglePostData] = useState<iPost>({
+        id:1,
+        report:'', 
+        description:'', 
+        location:'', 
+        timeSeen:'', 
+        timeFiled: '', 
+        category_id: 0,
+        tags: [{
+            id:1,
+            tag_name:''
+        }],
+        user: {
+            id:1,
+            username:''
+        }});
 
     useEffect( () => {
-        if (postId!==undefined)   {
-            // console.log('fetching post from API...')
+        console.log(postId)
+        if (postId!==0)   {
             axios.get(`/api/posts/${postId}`)
-            .then((res) =>   {
+            .then((res) => {
                 const post = res.data
-                setPostData(post)
+                setSinglePostData(post)
             });
         }
-        setPostId(4)
-        console.log({setPostId})
     }, [postId] );
 
-    return {postData, setPostId}
+    return {singlePostData, setPostId}
 }

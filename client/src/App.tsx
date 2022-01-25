@@ -9,19 +9,19 @@ import { useSearch } from "./hooks/searchHook";
 import { useBlogData } from "./hooks/blogHook";
 import { useSinglePost } from "./hooks/postHook";
 import { useCreateUser } from "./hooks/createUserHook";
-import { useUpdateProfile, useGetProfile } from "./hooks/profileHook";
-import { useHome } from './hooks/homeDisplayHook';
+import { useGetProfile } from './hooks/getProfileHook'
+import { useUpdateProfile } from "./hooks/updateProfileHook";
 import Post from "./components/views/singlePost/post";
 import Create from "./components/views/create/create";
 
 export default function AllRoutes(children: any) {
     const { search, setSearch, results } = useSearch();
     const { category, setCategory } = useBlogData();
-    const { postData, setPostId } = useSinglePost();
     const { userExists, setUserExists, userId } = useCreateUser();
-    const { formsOpen, setFormsOpen, setBio, setCreatures } = useUpdateProfile()
-    const { profileData } = useGetProfile();
-    const { setHome } = useHome();
+    const { setSendUpdate, setBio, setCreatures } = useUpdateProfile()
+    const { profileData, hasFetched, hasNotFetched } = useGetProfile();
+    const { singlePostData, setPostId } = useSinglePost();
+
 
     return (
         <BrowserRouter>
@@ -33,20 +33,23 @@ export default function AllRoutes(children: any) {
                             setUserExists={setUserExists} />}>
                         <Route path='/' element={<Homepage 
                             setCategory={setCategory}
-                            setHome={setHome}/>} />
+                            setPostId={setPostId} />} />
                         <Route path='/blog/:category' element={<Blog category={category}/>} />
                         <Route path='/dashboard' element={<Dashboard />} />
                         <Route path='/profile/:userId' element={<Profile 
-                            formsOpen = {formsOpen}
-                            setFormsOpen = {setFormsOpen}
                             setBio={setBio}
+                            setSendUpdate={setSendUpdate}
                             setCreatures={setCreatures}
-                            profileData= {profileData}  />} />
+                            profileData= {profileData}
+                            hasFetched={hasFetched}
+                            hasNotFetched={hasNotFetched}  />} />
                         <Route path='/create' element={<Create userId={userId} />} />
                         <Route path='/search/:searchItems'element={<SearchLanding 
                         results={results} 
                         search={search} />} />
-                        <Route path='/post/:id' element={<Post postData={postData} setPostId={setPostId}/>} />
+                        <Route path='/post/:id' element={<Post 
+                        setPostId={setPostId} 
+                        singlePostData={singlePostData}/>} />
                     </Route>
                 </Routes>
         </BrowserRouter>
