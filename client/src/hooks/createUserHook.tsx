@@ -25,7 +25,7 @@ export const useCreateUser = () => {
             });
         }
         if (username) {
-            axios.get(`api/users/${username}`)
+            axios.get(`/api/users/${username}`)
             .then((res) => {
                 const user = res.data;
                 if (user) {

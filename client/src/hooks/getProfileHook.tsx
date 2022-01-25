@@ -1,32 +1,41 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
+interface iUser {
+    userId:number,
+    userBio:'', 
+    userCreatures:''
+}
 
 export const useGetProfile = () => {
-    const [profileData, setProfileData] = useState<{userId:number ,userBio:'', userCreatures:''}>({userId: 4,userBio:'', userCreatures:''})
+    const [profileData, setProfileData] = useState<iUser>({userId: 4,userBio:'', userCreatures:''})
     const [shouldFetch, setShouldFetch] = useState<boolean>(true)
 
     const {user} = useAuth0();
     const username = user?.nickname
 
-    // grab nickname from user object see if user exists with this username in db
-    // if not, add user
     const hasFetched = () => {
         setShouldFetch(false)
     }
+    const hasNotFetched = () => {
+        setShouldFetch(true)
+    }
 
     useEffect(() => {
-        if(shouldFetch===true) {
+        if(shouldFetch && username) {
             axios.get(`/api/users/${username}`)
                 .then((res) => {
                     const userData = res.data;
+                    console.log(userData)
                     if(userData) {
+                        console.log(userData.bio)
                         setProfileData({userId: userData.id, userBio: userData.bio, userCreatures: userData.creatures})
                     }
                 })
             }
-            setShouldFetch(false)
-        }, [username, shouldFetch])
+            // console.log(profileData)
+            hasFetched();
+        }, [shouldFetch])
 
-    return {profileData, hasFetched}
+    return {profileData, hasFetched, hasNotFetched}
 };

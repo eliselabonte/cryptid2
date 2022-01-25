@@ -5,7 +5,6 @@ import { Link, useLocation } from 'react-router-dom';
 export default function Main(props:any) {
     const {home, setHome} = props;
     const location = useLocation();
-    console.log(location)
     const isHome = location.pathname==='/' ? 'homepage cryptid' : 'cryptid';
 
     return (

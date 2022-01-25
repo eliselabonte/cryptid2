@@ -17,8 +17,8 @@ export default function AllRoutes(children: any) {
     const { search, setSearch, results } = useSearch();
     const { category, setCategory } = useBlogData();
     const { userExists, setUserExists, userId } = useCreateUser();
-    const { formsOpen, setFormsOpen, setBio, setCreatures } = useUpdateProfile()
-    const { profileData } = useGetProfile();
+    const { setSendUpdate, setBio, setCreatures } = useUpdateProfile()
+    const { profileData, hasFetched, hasNotFetched } = useGetProfile();
 
     return (
         <BrowserRouter>
@@ -33,11 +33,12 @@ export default function AllRoutes(children: any) {
                         <Route path='/blog/:category' element={<Blog category={category}/>} />
                         <Route path='/dashboard' element={<Dashboard />} />
                         <Route path='/profile/:userId' element={<Profile 
-                            formsOpen = {formsOpen}
-                            setFormsOpen = {setFormsOpen}
                             setBio={setBio}
+                            setSendUpdate={setSendUpdate}
                             setCreatures={setCreatures}
-                            profileData= {profileData}  />} />
+                            profileData= {profileData}
+                            hasFetched={hasFetched}
+                            hasNotFetched={hasNotFetched}  />} />
                         <Route path='/create' element={<Create userId={userId} />} />
                         <Route path='/search/:searchItems'element={<SearchLanding 
                         results={results} 
