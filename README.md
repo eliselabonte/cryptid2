@@ -12,8 +12,6 @@
 
   * [Contributing](#contributing)
 
-  * [Screenshot](#screenshot)
-
   ## Description:
     Cryptid 2.0 is a full-stack MERN application that allows user to create posts to report on the latest sightings and theories of cryptids, UFOs, and the paranormal. User are able to create, edit and delete post as well as view reports that others have made based on category. 
 
