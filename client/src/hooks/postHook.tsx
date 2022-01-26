@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-import { iPost, defaultPost } from '../utils/iPostFormat'
+import { iPost } from '../utils/iPostFormat'
 
 export const useSinglePost = () => {
     // this is where it is breaking. postId not updating with array of posts
@@ -23,15 +23,15 @@ export const useSinglePost = () => {
         }});
 
     useEffect( () => {
-        console.log(postId)
         if (postId!==0)   {
             axios.get(`/api/posts/${postId}`)
             .then((res) => {
                 const post = res.data
+                console.log(post)
                 setSinglePostData(post)
             });
         }
     }, [postId] );
 
-    return {singlePostData, setPostId}
+    return {singlePostData, setPostId, postId}
 }

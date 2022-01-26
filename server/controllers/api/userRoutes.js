@@ -7,7 +7,6 @@ router.get('/:username', async (req, res) => {
       where : {username: req.params.username}
     })
     res.status(200).json(user)
-    console.log('\x1b[36m%s\x1b[0m', req.params.username, user)
   }
   catch(err)  {
     res.status(500).json(err)

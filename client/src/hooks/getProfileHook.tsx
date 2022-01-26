@@ -33,9 +33,8 @@ export const useGetProfile = () => {
                     }
                 })
             }
-            // console.log(profileData)
             hasFetched();
-        }, [shouldFetch])
+        }, [shouldFetch, username])
 
     return {profileData, hasFetched, hasNotFetched}
 };
