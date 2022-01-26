@@ -1,6 +1,6 @@
 # Cryptid 2.0
 
-![cryptid](./client/src/images/cryptid.png)
+![cryptid](./site-screenshot.png)
 
   ## Table of Contents
 
