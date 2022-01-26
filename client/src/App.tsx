@@ -20,7 +20,7 @@ export default function AllRoutes(children: any) {
     const { userExists, setUserExists, userId } = useCreateUser();
     const { setSendUpdate, setBio, setCreatures } = useUpdateProfile()
     const { profileData, hasFetched, hasNotFetched } = useGetProfile();
-    const { singlePostData, setPostId } = useSinglePost();
+    const { singlePostData, setPostId, postId } = useSinglePost();
 
 
     return (
@@ -33,10 +33,13 @@ export default function AllRoutes(children: any) {
                             setUserExists={setUserExists} />}>
                         <Route path='/' element={<Homepage 
                             setCategory={setCategory}
-                            setPostId={setPostId} />} />
+                            setPostId={setPostId}  
+                            postId={postId}/>} />
                         <Route path='/blog/:category' element={<Blog category={category}/>} />
                         <Route path='/dashboard' element={<Dashboard />} />
-                        <Route path='/profile/:userId' element={<Profile 
+                        <Route path='/profile/:userId' element={<Profile  
+                            postId={postId}
+                            setPostId={setPostId}
                             setBio={setBio}
                             setSendUpdate={setSendUpdate}
                             setCreatures={setCreatures}
@@ -48,6 +51,7 @@ export default function AllRoutes(children: any) {
                         results={results} 
                         search={search} />} />
                         <Route path='/post/:id' element={<Post 
+                        postId={postId}
                         setPostId={setPostId} 
                         singlePostData={singlePostData}/>} />
                     </Route>

@@ -5,7 +5,7 @@ import { iPost } from '../../../utils/iPostFormat';
 
 // find all posts (by date) and render each as a post
 export default function AllPosts(props:any) {
-    const { setPostId } = props
+    const { setPostId, postId } = props
     const [allPosts, setAllPosts] = useState<iPost[]>([{
         id:1,
         report:'', 
@@ -24,23 +24,19 @@ export default function AllPosts(props:any) {
         }}]);
 
     useEffect(() => {
-        // if (allPosts.length === 0)  {
             axios.get('/api/posts')
                 .then((res) => {
                     const apiPosts = res.data
-                    console.log({apiPosts})
                     setAllPosts(apiPosts)
                 })
                 .catch((err) => {
                     console.error(err)
                 })
-        
-    }, [])
-    console.log({allPosts})
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
     
-    const posts = allPosts.map((post, i) =>  {
+    const posts = allPosts.map((post) =>  {
         return(
-            <Post singlePostData={post} setPostId={setPostId} key={i}/>
+            <Post singlePostData={post} key={postId} setPostId={setPostId} />
         )
     })
 

@@ -10,7 +10,6 @@ export const useBlogData = () => {
 
             console.log('fetching blog from API...', category)
 
-            // TODO: this seems to be a proxy issue
             axios.get(`/api/categories/${category}`)
             .then((res) =>   {
                 if (res){

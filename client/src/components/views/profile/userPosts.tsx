@@ -6,7 +6,7 @@ import Post from '../singlePost/post';
 export default function UserPosts(props:any) {
     const [userPosts, setUserPosts] = useState([]);
 
-    const {userId} = props;
+    const {userId, setPostId, postId } = props;
 
     useEffect(() => {
         if (userPosts.length === 0)  {
@@ -19,11 +19,11 @@ export default function UserPosts(props:any) {
                     console.error(err)
                 })
         }
-    }, [userPosts])
+    }, [userPosts, userId])
     
-    const posts = userPosts.map((post, i) =>  {
+    const posts = userPosts.map((post) =>  {
         return(
-            <Post postData={post} key={i}/>
+            <Post singlePostData={post} key={postId} setPostId={setPostId} />
         )
     })
 

@@ -16,7 +16,7 @@ function Profile(props:any) {
     const [formsOpen, setFormsOpen] = useState<boolean>(false);
     const [tempProfileData, setTempProfileData] = useState<iProfileData>({ bio:'', creatures:'' })
 
-    const {setBio, setCreatures, setSendUpdate, profileData, hasNotFetched} = props;
+    const {setBio, setCreatures, setSendUpdate, profileData, hasNotFetched, setPostId } = props;
 
     const { user } = useAuth0();
     const nickname = user?.nickname;
@@ -60,7 +60,7 @@ function Profile(props:any) {
             </div>
             <div className='my-reports column-right'>
                 <h2 className='profile-title'>My Reports</h2>
-                <UserPosts userId={userId}/>
+                <UserPosts userId={userId} setPostId={setPostId} />
             </div>
         </div>
     )
