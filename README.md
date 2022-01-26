@@ -1,5 +1,7 @@
 # Cryptid 2.0
 
+![cryptid](./client/src/images/cryptid.png)
+
   ## Table of Contents
 
   * [Description](#description)
@@ -32,10 +34,3 @@
     [Elise LaBonte](https://www.github.com/eliselabonte)
     [Stevanie Kanter](https://www.github.com/stevaniekanter)
     [Nick Zabkar](https://www.github.com/CIDoubleAgent)
-
-
-  ## Screenshot
-     ![cryptid](./client/src/images/cryptid.png)
-     ![cryptid](./client/src/images/cryptid2.png)
-
-
